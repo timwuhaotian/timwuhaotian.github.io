@@ -166,6 +166,52 @@
             color: var(--text-main);
         }
 
+        .logo-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            padding: 0.35rem 0.75rem;
+            border-radius: 2rem;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            color: var(--text-main);
+        }
+
+        .logo-badge:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(14, 165, 233, 0.15);
+        }
+
+        .logo-badge img {
+            width: 16px;
+            height: 16px;
+        }
+
+        .logo-badge span {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--text-main);
+        }
+
+        .logo-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 1.5rem;
+        }
+
+        .logo-grid.small img {
+            width: 14px;
+            height: 14px;
+        }
+
+        .logo-grid.small span {
+            font-size: 0.65rem;
+        }
+
         /* DOSSIER STYLE (LAST SLIDE) */
         .dossier {
             max-width: 900px;
@@ -243,10 +289,10 @@
             <h1>Haotian Wu</h1>
             <p>Senior Staff Engineer & Full-Stack Architect. Bridging enterprise-scale engineering at <strong>SPH Media</strong> & <strong>Lazada</strong> with agile, AI-native 0-to-1 product mastery.</p>
             <div class="tag-list">
-                <span class="tag">SPH Media</span>
-                <span class="tag">Lazada</span>
-                <span class="tag">Aleph Labs</span>
-                <span class="tag">University of Melbourne</span>
+                <a href="https://sph.com.sg/" target="_blank" rel="noopener" class="logo-badge"><span>SPH Media</span></a>
+                <a href="https://www.lazada.com/" target="_blank" rel="noopener" class="logo-badge"><span>Lazada</span></a>
+                <a href="https://www.aleph-labs.com/" target="_blank" rel="noopener" class="logo-badge"><span>Aleph Labs</span></a>
+                <a href="https://www.unimelb.edu.au/" target="_blank" rel="noopener" class="logo-badge"><span>University of Melbourne</span></a>
             </div>
         </section>
 
@@ -274,11 +320,11 @@
             <div class="grid">
                 <div class="card">
                     <h3>RAG Systems</h3>
-                    <p>Designed intelligent retrieval pipelines using Vector Search, LLM orchestration (LangChain), and secure document parsing.</p>
+                    <p>Designed intelligent retrieval pipelines using <a href="https://python.langchain.com/" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none;">LangChain</a> for LLM orchestration, Vector Search, and secure document parsing.</p>
                 </div>
                 <div class="card">
                     <h3>SaaS Foundations</h3>
-                    <p>Implemented robust foundations: NextAuth, AWS Serverless, MongoDB Atlas, and Webhook-driven billing systems.</p>
+                    <p>Implemented robust foundations: <a href="https://next-auth.js.org/" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none;">NextAuth</a>, AWS Serverless, MongoDB Atlas, and Webhook-driven billing systems.</p>
                 </div>
             </div>
         </section>
@@ -303,10 +349,24 @@
             <div class="dossier">
                 <div class="dossier-section">
                     <h4>Core Tech Arsenal</h4>
-                    <div class="dossier-content">
-                        <strong>Frontend:</strong> React 19, Next.js 16 (App Router), TypeScript, Tailwind 4, Framer Motion, Valtio.<br>
-                        <strong>Backend:</strong> Node.js, Express, AWS Serverless (Lambda/DynamoDB), MongoDB + Atlas Vector Search.<br>
-                        <strong>Infrastructure:</strong> Redis, S3/MinIO, Docker, Playwright (E2E), Vitest, GitHub Actions (CI/CD).
+                    <div class="logo-grid small">
+                        <a href="https://react.dev/" target="_blank" rel="noopener" class="logo-badge"><img src="https://cdn.simpleicons.org/react" alt="React"><span>React 19</span></a>
+                        <a href="https://nextjs.org/" target="_blank" rel="noopener" class="logo-badge"><img src="https://cdn.simpleicons.org/nextdotjs" alt="Next.js"><span>Next.js 16</span></a>
+                        <a href="https://www.typescriptlang.org/" target="_blank" rel="noopener" class="logo-badge"><img src="https://cdn.simpleicons.org/typescript" alt="TypeScript"><span>TypeScript</span></a>
+                        <a href="https://tailwindcss.com/" target="_blank" rel="noopener" class="logo-badge"><img src="https://cdn.simpleicons.org/tailwindcss" alt="Tailwind CSS"><span>Tailwind 4</span></a>
+                        <a href="https://www.framer.com/motion/" target="_blank" rel="noopener" class="logo-badge"><img src="https://cdn.simpleicons.org/framer" alt="Framer Motion"><span>Framer Motion</span></a>
+                        <a href="https://valtio.pmnd.rs/" target="_blank" rel="noopener" class="logo-badge"><img src="https://cdn.simpleicons.org/redux" alt="Valtio"><span>Valtio</span></a>
+                        <a href="https://nodejs.org/" target="_blank" rel="noopener" class="logo-badge"><img src="https://cdn.simpleicons.org/nodedotjs" alt="Node.js"><span>Node.js</span></a>
+                        <a href="https://expressjs.com/" target="_blank" rel="noopener" class="logo-badge"><img src="https://cdn.simpleicons.org/express" alt="Express"><span>Express</span></a>
+                        <a href="https://aws.amazon.com/" target="_blank" rel="noopener" class="logo-badge"><img src="https://cdn.simpleicons.org/amazonaws" alt="AWS"><span>AWS Serverless</span></a>
+                        <a href="https://www.mongodb.com/" target="_blank" rel="noopener" class="logo-badge"><img src="https://cdn.simpleicons.org/mongodb" alt="MongoDB"><span>MongoDB</span></a>
+                        <a href="https://redis.io/" target="_blank" rel="noopener" class="logo-badge"><img src="https://cdn.simpleicons.org/redis" alt="Redis"><span>Redis</span></a>
+                        <a href="https://www.docker.com/" target="_blank" rel="noopener" class="logo-badge"><img src="https://cdn.simpleicons.org/docker" alt="Docker"><span>Docker</span></a>
+                        <a href="https://playwright.dev/" target="_blank" rel="noopener" class="logo-badge"><img src="https://cdn.simpleicons.org/playwright" alt="Playwright"><span>Playwright</span></a>
+                        <a href="https://vitest.dev/" target="_blank" rel="noopener" class="logo-badge"><img src="https://cdn.simpleicons.org/vitest" alt="Vitest"><span>Vitest</span></a>
+                        <a href="https://github.com/features/actions" target="_blank" rel="noopener" class="logo-badge"><img src="https://cdn.simpleicons.org/githubactions" alt="GitHub Actions"><span>GitHub Actions</span></a>
+                        <a href="https://www.langchain.com/" target="_blank" rel="noopener" class="logo-badge"><img src="https://cdn.simpleicons.org/langchain" alt="LangChain"><span>LangChain</span></a>
+                        <a href="https://next-auth.js.org/" target="_blank" rel="noopener" class="logo-badge"><img src="https://cdn.simpleicons.org/nextauth" alt="NextAuth"><span>NextAuth</span></a>
                     </div>
                 </div>
                 <div class="dossier-section">
@@ -318,7 +378,7 @@
                 <div class="dossier-section">
                     <h4>AI Capabilities</h4>
                     <div class="dossier-content">
-                        Proficient in LangChain ecosystem, Vector Embedding optimization, RAG performance tuning, and building agentic workflows that integrate directly with business logic and cloud infrastructure.
+                        Proficient in <a href="https://www.langchain.com/" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none;">LangChain</a> ecosystem, Vector Embedding optimization, RAG performance tuning, and building agentic workflows that integrate directly with business logic and cloud infrastructure.
                     </div>
                 </div>
             </div>
