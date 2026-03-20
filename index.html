@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Hao Tian Wu - Full-Stack AI Engineer</title>
+    <!-- Google Fonts: Inter for clean aesthetics -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        /* BASE & CSS VARIABLES */
+        :root {
+            --bg-color: #050505;
+            --text-primary: #f0f0f0;
+            --text-secondary: #888888;
+            --accent: #ffffff;
+            --accent-glow: rgba(255, 255, 255, 0.15);
+            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --spacing-unit: clamp(1rem, 2vw, 3rem);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            overflow: hidden; /* Hide scrollbars, full viewport only */
+            overscroll-behavior: none;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* SLIDES CONTAINER */
+        #presentation {
+            height: 100vh;
+            height: 100dvh;
+            width: 100vw;
+            position: relative;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: calc(var(--spacing-unit) * 3);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateY(40px);
+        }
+
+        .slide.active {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        .slide.prev {
+            transform: translateY(-40px);
+        }
+
+        /* PROGRESS BAR */
+        .progress-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            height: 4px;
+            background: var(--accent);
+            width: 0%;
+            transition: width 0.3s ease-out;
+            z-index: 100;
+        }
+
+        /* TYPOGRAPHY & LAYOUT */
+        .tagline {
+            font-size: clamp(0.8rem, 1vw, 1rem);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: clamp(3rem, 6vw, 8rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.04em;
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 5rem);
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 2rem;
+        }
+
+        p {
+            font-size: clamp(1rem, 1.5vw, 1.8rem);
+            color: var(--text-secondary);
+            line-height: 1.6;
+            max-width: 800px;
+        }
+
+        /* GRID / LIST LAYOUTS */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 900px;
+            margin-top: 2rem;
+        }
+
+        .tech-item h3 {
+            font-size: clamp(1.2rem, 1.8vw, 2rem);
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .tech-item p {
+            font-size: clamp(0.9rem, 1.2vw, 1.2rem);
+        }
+
+        /* EFFECTS */
+        .glow-text {
+            text-shadow: 0 0 40px var(--accent-glow);
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 1rem;
+            backdrop-filter: blur(10px);
+        }
+
+        /* NAVIGATION INDICATOR */
+        .nav-hint {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            letter-spacing: 0.1em;
+            z-index: 50;
+        }
+
+        /* REDUCED MOTION */
+        @media (prefers-reduced-motion: reduce) {
+            .slide {
+                transition: opacity 0.3s ease;
+                transform: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="presentation">
+        <!-- Slide 1: Title -->
+        <section class="slide active">
+            <div class="tagline">Developer Profile</div>
+            <h1 class="glow-text">Hao Tian Wu</h1>
+            <p>Full-Stack AI Engineer & SaaS Builder.<br>From zero to one, crafting intelligent, scalable web applications.</p>
+        </section>
+
+        <!-- Slide 2: Background -->
+        <section class="slide">
+            <div class="tagline">The Background</div>
+            <h2>0 → 1 Product Architect</h2>
+            <div class="glass-panel" style="max-width: 800px;">
+                <p>I specialize in building complete SaaS platforms from the ground up. My recent project, Kodda, is a multi-tenant RAG platform that handles everything from secure document parsing and vector embeddings to subscription billing and UI-rich chat interfaces.</p>
+            </div>
+        </section>
+
+        <!-- Slide 3: Tech Arsenal -->
+        <section class="slide">
+            <div class="tagline">The Arsenal</div>
+            <h2>Modern Web Stack</h2>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <h3>Frontend</h3>
+                    <p>Next.js 16 (App Router), React 19, Tailwind 4, Framer Motion, shadcn/ui</p>
+                </div>
+                <div class="tech-item">
+                    <h3>Backend & Data</h3>
+                    <p>Node.js, MongoDB + Vector Search, Redis, MinIO/S3, NextAuth</p>
+                </div>
+                <div class="tech-item">
+                    <h3>AI / LLMs</h3>
+                    <p>LangChain, OpenAI, Ollama, RAG Pipelines, Multi-tenant Architecture</p>
+                </div>
+                <div class="tech-item">
+                    <h3>Engineering</h3>
+                    <p>Playwright E2E, Vitest, Bun, Webhook-driven Billing (RevenueCat)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 4: AI Native -->
+        <section class="slide">
+            <div class="tagline">The Workflow</div>
+            <h2>AI-Native Developer</h2>
+            <p style="margin-bottom: 2rem;">I don't just build AI tools; I build <strong>with</strong> AI tools.</p>
+            <div class="glass-panel" style="max-width: 800px;">
+                <p style="font-size: clamp(0.9rem, 1.2vw, 1.4rem);">By seamlessly integrating Agentic CLI tools (like Gemini CLI) and AI IDEs into my daily workflow, I accelerate boilerplate generation, complex refactoring, and test-driven development. This allows me to focus purely on business logic, architectural integrity, and delivering exceptional UX.</p>
+            </div>
+        </section>
+
+        <!-- Slide 5: Contact -->
+        <section class="slide">
+            <div class="tagline">Connect</div>
+            <h1 style="font-size: clamp(2rem, 5vw, 6rem);">Let's Build the Future.</h1>
+            <p style="margin-top: 1rem; color: var(--accent);">
+                GitHub: <a href="https://github.com/timwuhaotian" style="color: inherit; text-decoration: none; border-bottom: 1px solid var(--accent);">@timwuhaotian</a>
+            </p>
+        </section>
+    </div>
+
+    <div class="progress-bar" id="progress"></div>
+    <div class="nav-hint">Use ↑/↓, Space, or scroll to navigate</div>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const progress = document.getElementById('progress');
+        let currentSlide = 0;
+        let isAnimating = false;
+
+        function updateSlides() {
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active', 'prev');
+                if (index === currentSlide) {
+                    slide.classList.add('active');
+                } else if (index < currentSlide) {
+                    slide.classList.add('prev');
+                }
+            });
+            progress.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+            
+            // Release animation lock
+            setTimeout(() => { isAnimating = false; }, 800);
+        }
+
+        function nextSlide() {
+            if (isAnimating || currentSlide >= slides.length - 1) return;
+            isAnimating = true;
+            currentSlide++;
+            updateSlides();
+        }
+
+        function prevSlide() {
+            if (isAnimating || currentSlide <= 0) return;
+            isAnimating = true;
+            currentSlide--;
+            updateSlides();
+        }
+
+        // Keyboard navigation
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ' || e.key === 'PageDown') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp' || e.key === 'PageUp') {
+                e.preventDefault();
+                prevSlide();
+            }
+        });
+
+        // Wheel navigation (debounced via isAnimating)
+        window.addEventListener('wheel', (e) => {
+            if (Math.abs(e.deltaY) > 40) { // Threshold to prevent tiny scrolls triggering slides
+                if (e.deltaY > 0) nextSlide();
+                else prevSlide();
+            }
+        });
+
+        // Touch navigation
+        let touchStartY = 0;
+        window.addEventListener('touchstart', e => {
+            touchStartY = e.touches[0].clientY;
+        });
+        
+        window.addEventListener('touchend', e => {
+            const touchEndY = e.changedTouches[0].clientY;
+            const diff = touchStartY - touchEndY;
+            
+            if (Math.abs(diff) > 50) { // Swipe threshold
+                if (diff > 0) nextSlide();
+                else prevSlide();
+            }
+        });
+
+        // Init
+        updateSlides();
+    </script>
+</body>
+</html>
