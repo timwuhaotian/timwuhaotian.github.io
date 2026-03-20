@@ -1,21 +1,22 @@
 <!DOCTYPE html>
-<html lang="zh-CN" class="dark">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Hao Tian Wu - Full-Stack AI Engineer</title>
-    <!-- Google Fonts: Inter for clean aesthetics -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>Hao Tian Wu | Full-Stack AI Solutions Architect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        /* BASE & CSS VARIABLES */
         :root {
-            --bg-color: #050505;
-            --text-primary: #f0f0f0;
-            --text-secondary: #888888;
-            --accent: #ffffff;
-            --accent-glow: rgba(255, 255, 255, 0.15);
-            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            --spacing-unit: clamp(1rem, 2vw, 3rem);
+            --bg-base: #0a0a0c;
+            --bg-surface: #141417;
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+            --accent-primary: #38bdf8; /* Sky blue for a professional tech feel */
+            --accent-glow: rgba(56, 189, 248, 0.15);
+            --border-light: rgba(255, 255, 255, 0.06);
+            --font-sans: 'Inter', -apple-system, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --spacing-base: clamp(1.5rem, 4vw, 4rem);
         }
 
         * {
@@ -25,15 +26,14 @@
         }
 
         body {
-            font-family: var(--font-main);
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            overflow: hidden; /* Hide scrollbars, full viewport only */
+            font-family: var(--font-sans);
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            overflow: hidden;
             overscroll-behavior: none;
             -webkit-font-smoothing: antialiased;
         }
 
-        /* SLIDES CONTAINER */
         #presentation {
             height: 100vh;
             height: 100dvh;
@@ -50,193 +50,250 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: calc(var(--spacing-unit) * 3);
+            padding: var(--spacing-base);
             opacity: 0;
             pointer-events: none;
-            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-            transform: translateY(40px);
+            transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
+            transform: scale(0.98) translateY(20px);
+            filter: blur(10px);
         }
 
         .slide.active {
             opacity: 1;
             pointer-events: auto;
-            transform: translateY(0);
+            transform: scale(1) translateY(0);
+            filter: blur(0);
         }
 
         .slide.prev {
-            transform: translateY(-40px);
+            transform: translateY(-30px);
+            opacity: 0;
         }
 
-        /* PROGRESS BAR */
-        .progress-bar {
+        /* PROGRESS */
+        .progress-track {
             position: fixed;
-            bottom: 0;
+            top: 0;
             left: 0;
-            height: 4px;
-            background: var(--accent);
-            width: 0%;
-            transition: width 0.3s ease-out;
+            width: 100%;
+            height: 3px;
+            background: var(--border-light);
             z-index: 100;
         }
 
-        /* TYPOGRAPHY & LAYOUT */
-        .tagline {
-            font-size: clamp(0.8rem, 1vw, 1rem);
+        .progress-fill {
+            height: 100%;
+            background: var(--accent-primary);
+            width: 0%;
+            transition: width 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            box-shadow: 0 0 10px var(--accent-primary);
+        }
+
+        /* TYPOGRAPHY */
+        .eyebrow {
+            font-family: var(--font-mono);
+            font-size: clamp(0.7rem, 0.8vw, 0.9rem);
+            color: var(--accent-primary);
             text-transform: uppercase;
-            letter-spacing: 0.2em;
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
+            letter-spacing: 0.3em;
+            margin-bottom: 1.5rem;
+            display: block;
         }
 
         h1 {
-            font-size: clamp(3rem, 6vw, 8rem);
+            font-size: clamp(2.5rem, 7vw, 6rem);
             font-weight: 800;
-            line-height: 1.1;
-            letter-spacing: -0.04em;
-            margin-bottom: 1.5rem;
+            line-height: 1;
+            letter-spacing: -0.05em;
+            margin-bottom: 2rem;
+            background: linear-gradient(to bottom right, #fff 40%, #64748b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         h2 {
-            font-size: clamp(2rem, 4vw, 5rem);
-            font-weight: 600;
-            line-height: 1.2;
-            letter-spacing: -0.02em;
-            margin-bottom: 2rem;
+            font-size: clamp(1.8rem, 4vw, 3.5rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
         }
 
         p {
-            font-size: clamp(1rem, 1.5vw, 1.8rem);
-            color: var(--text-secondary);
+            font-size: clamp(1rem, 1.2vw, 1.4rem);
+            color: var(--text-dim);
             line-height: 1.6;
-            max-width: 800px;
+            max-width: 750px;
         }
 
-        /* GRID / LIST LAYOUTS */
-        .tech-grid {
+        .bento-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            max-width: 900px;
-            margin-top: 2rem;
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin-top: 3rem;
         }
 
-        .tech-item h3 {
-            font-size: clamp(1.2rem, 1.8vw, 2rem);
-            color: var(--accent);
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .tech-item p {
-            font-size: clamp(0.9rem, 1.2vw, 1.2rem);
-        }
-
-        /* EFFECTS */
-        .glow-text {
-            text-shadow: 0 0 40px var(--accent-glow);
-        }
-
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+        .card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-light);
             padding: 2rem;
-            border-radius: 1rem;
-            backdrop-filter: blur(10px);
+            border-radius: 1.5rem;
+            transition: border-color 0.3s ease;
         }
 
-        /* NAVIGATION INDICATOR */
-        .nav-hint {
+        .card:hover {
+            border-color: rgba(56, 189, 248, 0.3);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--text-main);
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: var(--text-dim);
+        }
+
+        .mono {
+            font-family: var(--font-mono);
+        }
+
+        /* NAVIGATION */
+        .nav-controls {
             position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            letter-spacing: 0.1em;
+            bottom: var(--spacing-base);
+            right: var(--spacing-base);
+            display: flex;
+            gap: 1rem;
             z-index: 50;
         }
 
-        /* REDUCED MOTION */
-        @media (prefers-reduced-motion: reduce) {
+        .nav-btn {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-light);
+            color: var(--text-main);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            background: var(--accent-primary);
+            color: var(--bg-base);
+            border-color: var(--accent-primary);
+        }
+
+        .scroll-hint {
+            position: fixed;
+            bottom: var(--spacing-base);
+            left: var(--spacing-base);
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            font-family: var(--font-mono);
+            opacity: 0.5;
+        }
+
+        @media (max-width: 768px) {
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
             .slide {
-                transition: opacity 0.3s ease;
-                transform: none !important;
+                padding: 2rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <div id="presentation">
-        <!-- Slide 1: Title -->
-        <section class="slide active">
-            <div class="tagline">Developer Profile</div>
-            <h1 class="glow-text">Hao Tian Wu</h1>
-            <p>Full-Stack AI Engineer & SaaS Builder.<br>From zero to one, crafting intelligent, scalable web applications.</p>
-        </section>
-
-        <!-- Slide 2: Background -->
-        <section class="slide">
-            <div class="tagline">The Background</div>
-            <h2>0 → 1 Product Architect</h2>
-            <div class="glass-panel" style="max-width: 800px;">
-                <p>I specialize in building complete SaaS platforms from the ground up. My recent project, Kodda, is a multi-tenant RAG platform that handles everything from secure document parsing and vector embeddings to subscription billing and UI-rich chat interfaces.</p>
-            </div>
-        </section>
-
-        <!-- Slide 3: Tech Arsenal -->
-        <section class="slide">
-            <div class="tagline">The Arsenal</div>
-            <h2>Modern Web Stack</h2>
-            <div class="tech-grid">
-                <div class="tech-item">
-                    <h3>Frontend</h3>
-                    <p>Next.js 16 (App Router), React 19, Tailwind 4, Framer Motion, shadcn/ui</p>
-                </div>
-                <div class="tech-item">
-                    <h3>Backend & Data</h3>
-                    <p>Node.js, MongoDB + Vector Search, Redis, MinIO/S3, NextAuth</p>
-                </div>
-                <div class="tech-item">
-                    <h3>AI / LLMs</h3>
-                    <p>LangChain, OpenAI, Ollama, RAG Pipelines, Multi-tenant Architecture</p>
-                </div>
-                <div class="tech-item">
-                    <h3>Engineering</h3>
-                    <p>Playwright E2E, Vitest, Bun, Webhook-driven Billing (RevenueCat)</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Slide 4: AI Native -->
-        <section class="slide">
-            <div class="tagline">The Workflow</div>
-            <h2>AI-Native Developer</h2>
-            <p style="margin-bottom: 2rem;">I don't just build AI tools; I build <strong>with</strong> AI tools.</p>
-            <div class="glass-panel" style="max-width: 800px;">
-                <p style="font-size: clamp(0.9rem, 1.2vw, 1.4rem);">By seamlessly integrating Agentic CLI tools (like Gemini CLI) and AI IDEs into my daily workflow, I accelerate boilerplate generation, complex refactoring, and test-driven development. This allows me to focus purely on business logic, architectural integrity, and delivering exceptional UX.</p>
-            </div>
-        </section>
-
-        <!-- Slide 5: Contact -->
-        <section class="slide">
-            <div class="tagline">Connect</div>
-            <h1 style="font-size: clamp(2rem, 5vw, 6rem);">Let's Build the Future.</h1>
-            <p style="margin-top: 1rem; color: var(--accent);">
-                GitHub: <a href="https://github.com/timwuhaotian" style="color: inherit; text-decoration: none; border-bottom: 1px solid var(--accent);">@timwuhaotian</a>
-            </p>
-        </section>
+    <div class="progress-track">
+        <div class="progress-fill" id="progress"></div>
     </div>
 
-    <div class="progress-bar" id="progress"></div>
-    <div class="nav-hint">Use ↑/↓, Space, or scroll to navigate</div>
+    <main id="presentation">
+        <!-- Slide 1: Hero -->
+        <section class="slide active">
+            <span class="eyebrow">Portfolio</span>
+            <h1>Hao Tian Wu</h1>
+            <p>Senior Full-Stack Engineer specializing in AI-native architectures and production-grade RAG systems. Bridging the gap between LLM capabilities and scalable SaaS solutions.</p>
+        </section>
+
+        <!-- Slide 2: Core Philosophy -->
+        <section class="slide">
+            <span class="eyebrow">Experience</span>
+            <h2>Product Architect</h2>
+            <p style="margin-bottom: 2rem;">I build resilient, end-to-end solutions that transform complex AI workflows into seamless user experiences. My focus lies in architecting secure, multi-tenant environments with robust data isolation and optimized retrieval pipelines.</p>
+            <div class="card" style="max-width: 600px;">
+                <h3 class="accent">Design Principles</h3>
+                <p>Prioritizing architectural integrity, rigorous automated testing, and developer-centric workflows through AI-augmented engineering patterns.</p>
+            </div>
+        </section>
+
+        <!-- Slide 3: Tech Ecosystem -->
+        <section class="slide">
+            <span class="eyebrow">Capabilities</span>
+            <h2>Technical Ecosystem</h2>
+            <div class="bento-grid">
+                <div class="card">
+                    <h3>Frontend Engineering</h3>
+                    <p>Next.js 16 (App Router), React 19, TypeScript, Framer Motion, Tailwind CSS 4.</p>
+                </div>
+                <div class="card">
+                    <h3>Backend & Infrastructure</h3>
+                    <p>Node.js, MongoDB Atlas (Vector Search), Redis, AWS S3 / MinIO, Auth.js.</p>
+                </div>
+                <div class="card">
+                    <h3>AI / LLM Integration</h3>
+                    <p>LangChain Ecosystem, OpenAI/Ollama Integration, RAG Pipeline Optimization.</p>
+                </div>
+                <div class="card">
+                    <h3>Quality & Deployment</h3>
+                    <p>Playwright E2E Testing, Vitest, Bun, CI/CD Automation, Revenue/Billing Systems.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 4: AI Workflow -->
+        <section class="slide">
+            <span class="eyebrow">Methodology</span>
+            <h2>AI-Augmented Development</h2>
+            <p>I embrace an "AI-First" engineering mindset. By leveraging advanced agentic CLI tools and LLM orchestration within my development lifecycle, I maximize efficiency in code generation, refactoring, and test coverage—allowing me to focus on high-level architecture and business logic.</p>
+        </section>
+
+        <!-- Slide 5: Connect -->
+        <section class="slide">
+            <span class="eyebrow">Contact</span>
+            <h1>Let's build.</h1>
+            <p style="margin-bottom: 3rem;">Seeking opportunities to architect the next generation of intelligent software.</p>
+            <div style="display: flex; gap: 2rem; font-family: var(--font-mono); font-size: 1rem;">
+                <a href="https://github.com/timwuhaotian" style="color: var(--accent-primary); text-decoration: none; border-bottom: 1px dashed var(--accent-glow);">GitHub</a>
+                <span style="color: var(--text-dim);">//</span>
+                <span style="color: var(--text-main);">Available for Projects & Collaboration</span>
+            </div>
+        </section>
+    </main>
+
+    <div class="nav-controls">
+        <button class="nav-btn" onclick="prevSlide()" aria-label="Previous">↑</button>
+        <button class="nav-btn" onclick="nextSlide()" aria-label="Next">↓</button>
+    </div>
+
+    <div class="scroll-hint">SCROLL OR USE ARROWS TO NAVIGATE</div>
 
     <script>
         const slides = document.querySelectorAll('.slide');
-        const progress = document.getElementById('progress');
+        const progressFill = document.getElementById('progress');
         let currentSlide = 0;
         let isAnimating = false;
 
-        function updateSlides() {
+        function updateUI() {
             slides.forEach((slide, index) => {
                 slide.classList.remove('active', 'prev');
                 if (index === currentSlide) {
@@ -245,9 +302,7 @@
                     slide.classList.add('prev');
                 }
             });
-            progress.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
-            
-            // Release animation lock
+            progressFill.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
             setTimeout(() => { isAnimating = false; }, 800);
         }
 
@@ -255,53 +310,49 @@
             if (isAnimating || currentSlide >= slides.length - 1) return;
             isAnimating = true;
             currentSlide++;
-            updateSlides();
+            updateUI();
         }
 
         function prevSlide() {
             if (isAnimating || currentSlide <= 0) return;
             isAnimating = true;
             currentSlide--;
-            updateSlides();
+            updateUI();
         }
 
-        // Keyboard navigation
         window.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ' || e.key === 'PageDown') {
+            if (['ArrowDown', 'ArrowRight', ' '].includes(e.key)) {
                 e.preventDefault();
                 nextSlide();
-            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp' || e.key === 'PageUp') {
+            } else if (['ArrowUp', 'ArrowLeft'].includes(e.key)) {
                 e.preventDefault();
                 prevSlide();
             }
         });
 
-        // Wheel navigation (debounced via isAnimating)
+        let lastWheelTime = 0;
         window.addEventListener('wheel', (e) => {
-            if (Math.abs(e.deltaY) > 40) { // Threshold to prevent tiny scrolls triggering slides
+            const now = Date.now();
+            if (now - lastWheelTime < 1000) return;
+            if (Math.abs(e.deltaY) > 20) {
+                lastWheelTime = now;
                 if (e.deltaY > 0) nextSlide();
                 else prevSlide();
             }
-        });
+        }, { passive: true });
 
-        // Touch navigation
         let touchStartY = 0;
-        window.addEventListener('touchstart', e => {
-            touchStartY = e.touches[0].clientY;
-        });
-        
+        window.addEventListener('touchstart', e => { touchStartY = e.touches[0].clientY; }, { passive: true });
         window.addEventListener('touchend', e => {
             const touchEndY = e.changedTouches[0].clientY;
             const diff = touchStartY - touchEndY;
-            
-            if (Math.abs(diff) > 50) { // Swipe threshold
+            if (Math.abs(diff) > 50) {
                 if (diff > 0) nextSlide();
                 else prevSlide();
             }
-        });
+        }, { passive: true });
 
-        // Init
-        updateSlides();
+        updateUI();
     </script>
 </body>
 </html>
