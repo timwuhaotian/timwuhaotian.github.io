@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Haotian Wu | Senior Staff Engineer & Frontend Specialist</title>
+    <title>Haotian Wu | Senior Staff Engineer & AI Solutions Architect</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -50,6 +50,7 @@
             pointer-events: none;
             transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
             transform: translateY(20px);
+            overflow-y: auto; /* Allow internal scroll for long slides like the last one */
         }
 
         .slide.active {
@@ -109,7 +110,7 @@
         }
 
         p {
-            font-size: clamp(1.1rem, 1.4vw, 1.6rem);
+            font-size: clamp(1.1rem, 1.4vw, 1.5rem);
             color: var(--text-dim);
             line-height: 1.6;
             max-width: 850px;
@@ -121,13 +122,13 @@
             grid-template-columns: repeat(2, 1fr);
             gap: 1.5rem;
             max-width: 1100px;
-            margin-top: 3rem;
+            margin-top: 2rem;
         }
 
         .card {
             background: var(--bg-surface);
             border: 1px solid var(--border);
-            padding: 2.5rem;
+            padding: 2rem;
             border-radius: 1.25rem;
             transition: transform 0.3s ease, border-color 0.3s ease;
         }
@@ -138,30 +139,57 @@
         }
 
         .card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
             color: var(--text-main);
         }
 
         .card p {
-            font-size: 1rem;
+            font-size: 0.9rem;
             color: var(--text-dim);
+            line-height: 1.5;
         }
 
         .tag-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.75rem;
-            margin-top: 2rem;
+            gap: 0.6rem;
+            margin-top: 1.5rem;
         }
 
         .tag {
             background: var(--border);
-            padding: 0.4rem 1rem;
+            padding: 0.3rem 0.8rem;
             border-radius: 2rem;
             font-family: var(--font-mono);
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: var(--text-main);
+        }
+
+        /* DOSSIER STYLE (LAST SLIDE) */
+        .dossier {
+            max-width: 900px;
+            margin-top: 2rem;
+        }
+
+        .dossier-section {
+            margin-bottom: 2rem;
+            border-left: 2px solid var(--border);
+            padding-left: 1.5rem;
+        }
+
+        .dossier-section h4 {
+            font-family: var(--font-mono);
+            color: var(--accent);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        .dossier-content {
+            font-size: 1rem;
+            color: var(--text-dim);
+            line-height: 1.7;
         }
 
         /* NAVIGATION */
@@ -198,6 +226,7 @@
         @media (max-width: 768px) {
             .grid { grid-template-columns: 1fr; }
             .slide { padding: 2rem; }
+            .dossier-section { padding-left: 1rem; }
         }
     </style>
 </head>
@@ -208,72 +237,98 @@
     </div>
 
     <main id="presentation">
-        <!-- Slide 1: Profile -->
+        <!-- Slide 1: Combined Profile -->
         <section class="slide active">
-            <span class="eyebrow">Haotian Wu</span>
-            <h1>Senior Staff Engineer</h1>
-            <p>Architecting high-performance web systems for millions of users. Specialized in React, SSR, and mission-critical frontend infrastructure at scale.</p>
+            <span class="eyebrow">Identity</span>
+            <h1>Haotian Wu</h1>
+            <p>Senior Staff Engineer & Full-Stack Architect. Bridging enterprise-scale engineering at **SPH Media** & **Lazada** with agile, AI-native 0-to-1 product mastery.</p>
             <div class="tag-list">
                 <span class="tag">SPH Media</span>
                 <span class="tag">Lazada</span>
+                <span class="tag">Aleph Labs</span>
                 <span class="tag">University of Melbourne</span>
             </div>
         </section>
 
-        <!-- Slide 2: Core Expertise -->
+        <!-- Slide 2: Enterprise Leadership -->
         <section class="slide">
-            <span class="eyebrow">Expertise</span>
-            <h2>Architectural Leadership</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>Performance at Scale</h3>
-                    <p>Optimized systems for 200,000+ daily users, boosting PageSpeed scores by 30% via SSR, ISR, and automated CI/CD optimization.</p>
-                </div>
-                <div class="card">
-                    <h3>Frontend Modernization</h3>
-                    <p>Led multi-team migrations from legacy stacks (Drupal, PHP) to modern React/Typescript ecosystems with zero downtime.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Slide 3: Impact -->
-        <section class="slide">
-            <span class="eyebrow">Impact</span>
+            <span class="eyebrow">Enterprise</span>
             <h2>Proven Track Record</h2>
             <div class="grid">
                 <div class="card">
-                    <h3>SPH Media</h3>
-                    <p>Senior Staff Engineer. Restructured flagship publication architecture using serverless AWS solutions and high-concurrency SSR.</p>
+                    <h3>SPH Media (Senior Staff)</h3>
+                    <p>Restructured flagship publication architecture. Optimized SSR/ISR workflows for millions of monthly users, boosting PageSpeed by 30%.</p>
                 </div>
                 <div class="card">
-                    <h3>Lazada</h3>
-                    <p>Senior Manager, Frontend Engineering. Directed tech planning for high-impact platforms and mentored teams in engineering excellence.</p>
+                    <h3>Lazada (Senior Manager)</h3>
+                    <p>Led tech planning for high-impact platforms serving 200,000+ daily users. Mentored teams in engineering excellence and code quality.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Slide 4: Tech Stack -->
+        <!-- Slide 3: 0-to-1 Builder (Indie Spirit) -->
         <section class="slide">
-            <span class="eyebrow">Ecosystem</span>
-            <h2>Modern Stack</h2>
-            <div class="tag-list" style="max-width: 800px;">
-                <span class="tag">React / React Native</span>
-                <span class="tag">Typescript</span>
-                <span class="tag">Node.js</span>
-                <span class="tag">AWS Serverless</span>
-                <span class="tag">Playwright / TDD</span>
-                <span class="tag">GraphQL / DynamoDB</span>
-                <span class="tag">Next.js / SSR / ISR</span>
-                <span class="tag">Tailwind CSS</span>
+            <span class="eyebrow">Product Mastery</span>
+            <h2>0-to-1 Architect</h2>
+            <p>I specialize in building end-to-end SaaS solutions from initial prototype to production-ready platforms. Expert in multi-tenant architecture and complex RAG data pipelines.</p>
+            <div class="grid">
+                <div class="card">
+                    <h3>RAG Systems</h3>
+                    <p>Designed intelligent retrieval pipelines using Vector Search, LLM orchestration (LangChain), and secure document parsing.</p>
+                </div>
+                <div class="card">
+                    <h3>SaaS Foundations</h3>
+                    <p>Implemented robust foundations: NextAuth, AWS Serverless, MongoDB Atlas, and Webhook-driven billing systems.</p>
+                </div>
             </div>
-            <p style="margin-top: 3rem; font-size: 1.2rem;">Focused on building maintainable, type-safe, and highly-performant systems that drive business value.</p>
         </section>
 
-        <!-- Slide 5: Contact -->
+        <!-- Slide 4: AI Native Workflow -->
         <section class="slide">
-            <span class="eyebrow">Contact</span>
-            <h1>Let's Connect.</h1>
-            <p style="margin-bottom: 2rem;">Always open to discussing architectural challenges, engineering leadership, or innovative web technologies.</p>
+            <span class="eyebrow">Methodology</span>
+            <h2>AI-Native Developer</h2>
+            <p>I leverage AI agents and LLM-augmented engineering to accelerate the development lifecycle. This allows me to deliver enterprise-grade code at indie-hacker speeds.</p>
+            <div class="tag-list" style="margin-top: 2rem;">
+                <span class="tag">Agentic CLI Mastery</span>
+                <span class="tag">LLM-Augmented Refactoring</span>
+                <span class="tag">TDD with AI</span>
+                <span class="tag">Automated Documentation</span>
+            </div>
+        </section>
+
+        <!-- Slide 5: The Detailed Dossier (New) -->
+        <section class="slide">
+            <span class="eyebrow">Dossier</span>
+            <h2>Technical Summary</h2>
+            <div class="dossier">
+                <div class="dossier-section">
+                    <h4>Core Tech Arsenal</h4>
+                    <div class="dossier-content">
+                        **Frontend:** React 19, Next.js 16 (App Router), TypeScript, Tailwind 4, Framer Motion, Valtio.<br>
+                        **Backend:** Node.js, Express, AWS Serverless (Lambda/DynamoDB), MongoDB + Atlas Vector Search.<br>
+                        **Infrastructure:** Redis, S3/MinIO, Docker, Playwright (E2E), Vitest, GitHub Actions (CI/CD).
+                    </div>
+                </div>
+                <div class="dossier-section">
+                    <h4>Architectural Focus</h4>
+                    <div class="dossier-content">
+                        Deep expertise in Server-Side Rendering (SSR), Incremental Static Regeneration (ISR), Multi-tenant Security, Subscription Billing integration, and high-concurrency content delivery systems.
+                    </div>
+                </div>
+                <div class="dossier-section">
+                    <h4>AI Capabilities</h4>
+                    <div class="dossier-content">
+                        Proficient in LangChain ecosystem, Vector Embedding optimization, RAG performance tuning, and building agentic workflows that integrate directly with business logic and cloud infrastructure.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 6: Final Contact -->
+        <section class="slide">
+            <span class="eyebrow">Final</span>
+            <h1>Ready to build.</h1>
+            <p style="margin-bottom: 3rem;">Seeking opportunities to architect the next generation of intelligent systems or lead engineering teams towards excellence.</p>
             <div style="display: flex; gap: 2rem; font-family: var(--font-mono);">
                 <a href="mailto:timmy.wu@hotmail.com" style="color: var(--accent); text-decoration: none;">timmy.wu@hotmail.com</a>
                 <a href="https://github.com/timwuhaotian" style="color: var(--accent); text-decoration: none;">GitHub</a>
