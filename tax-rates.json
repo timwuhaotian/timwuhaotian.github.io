@@ -1,0 +1,13 @@
+{
+  "version": "2024-01-01",
+  "rates": [
+    { "currency": "$", "country": "US", "defaultRate": 0, "rateType": "varies by state", "lastUpdated": "2024-01-01" },
+    { "currency": "¥", "country": "CN", "defaultRate": 0, "rateType": "no VAT on consumer bills", "lastUpdated": "2024-01-01" },
+    { "currency": "€", "country": "EU", "defaultRate": 20, "rateType": "VAT varies by country", "lastUpdated": "2024-01-01" },
+    { "currency": "£", "country": "GB", "defaultRate": 20, "rateType": "VAT", "lastUpdated": "2024-01-01" },
+    { "currency": "S$", "country": "SG", "defaultRate": 9, "rateType": "GST", "lastUpdated": "2024-01-01" },
+    { "currency": "HK$", "country": "HK", "defaultRate": 0, "rateType": "no VAT/GST", "lastUpdated": "2024-01-01" },
+    { "currency": "A$", "country": "AU", "defaultRate": 10, "rateType": "GST", "lastUpdated": "2024-01-01" },
+    { "currency": "C$", "country": "CA", "defaultRate": 5, "rateType": "GST (varies by province)", "lastUpdated": "2024-01-01" }
+  ]
+}
