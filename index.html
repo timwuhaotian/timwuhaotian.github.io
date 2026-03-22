@@ -451,12 +451,12 @@
         
         function loadTheme() {
             const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'dark') {
-                html.classList.add('dark');
-                themeToggle.textContent = '🌙';
-            } else {
+            if (savedTheme === 'light') {
                 html.classList.remove('dark');
                 themeToggle.textContent = '☀️';
+            } else {
+                html.classList.add('dark');
+                themeToggle.textContent = '🌙';
             }
         }
         
