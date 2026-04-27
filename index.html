@@ -3,39 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Haotian Wu — Senior Staff Engineer & AI Solutions Architect. Enterprise-scale engineering meets AI-native product mastery.">
     <title>Haotian Wu | Senior Staff Engineer & AI Solutions Architect</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --blue: #0066FF;
+            --blue-hover: #0052CC;
             --coral: #FF6B6B;
-            --black: #000000;
-            --bg: #FAFAFA;
+            --coral-hover: #E85555;
+            --yellow: #FFB800;
+            --green: #00C853;
+            --purple: #9C27B0;
+            --black: #0A0A0A;
+            --bg: #F8F7F4;
             --bg-card: #FFFFFF;
-            --text: #1A1A1A;
-            --text-dim: #555555;
+            --text: #18181B;
+            --text-dim: #6B6B76;
             --border-w: 3px;
-            --shadow: 4px 4px 0px #000;
-            --shadow-hover: 6px 6px 0px #000;
-            --font: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+            --shadow: 4px 4px 0px var(--black);
+            --shadow-hover: 6px 6px 0px var(--black);
+            --shadow-sm: 2px 2px 0px var(--black);
+            --font-body: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+            --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 70px;
+            scroll-padding-top: 72px;
         }
 
         body {
-            font-family: var(--font);
+            font-family: var(--font-body);
             background: var(--bg);
             color: var(--text);
             -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
             line-height: 1.6;
+            background-image: radial-gradient(circle, #ddd 1px, transparent 1px);
+            background-size: 24px 24px;
         }
 
         a { color: inherit; text-decoration: none; }
+
+        ::selection {
+            background: var(--blue);
+            color: #fff;
+        }
+
+        :focus-visible {
+            outline: 3px solid var(--blue);
+            outline-offset: 2px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .reveal {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
+            }
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
 
         /* ── NAV ── */
         nav {
@@ -45,7 +80,6 @@
             right: 0;
             z-index: 100;
             background: var(--black);
-            border-bottom: var(--border-w) solid var(--black);
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -55,8 +89,9 @@
 
         .nav-logo {
             color: #fff;
+            font-family: var(--font-body);
             font-weight: 800;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             letter-spacing: -0.02em;
         }
 
@@ -66,19 +101,18 @@
 
         .nav-links {
             display: flex;
-            gap: 0;
             height: 100%;
         }
 
         .nav-links a {
-            color: rgba(255,255,255,0.7);
+            color: rgba(255,255,255,0.65);
             font-size: 0.85rem;
             font-weight: 600;
             padding: 0 1.25rem;
             display: flex;
             align-items: center;
             border-bottom: 3px solid transparent;
-            transition: all 0.2s ease;
+            transition: color 0.2s var(--ease-out), border-color 0.2s var(--ease-out);
             height: 100%;
         }
 
@@ -91,13 +125,18 @@
         .nav-hamburger {
             display: none;
             background: none;
-            border: 2px solid #fff;
+            border: 2px solid rgba(255,255,255,0.4);
             color: #fff;
-            width: 40px;
-            height: 40px;
+            width: 44px;
+            height: 44px;
             cursor: pointer;
             font-size: 1.2rem;
             border-radius: 4px;
+            transition: border-color 0.15s ease;
+        }
+
+        .nav-hamburger:hover {
+            border-color: #fff;
         }
 
         /* ── HERO ── */
@@ -118,11 +157,17 @@
             align-items: center;
         }
 
-        .hero-visual svg {
+        .hero-graphic {
+            position: relative;
             width: 100%;
-            max-width: 420px;
-            height: auto;
-            filter: drop-shadow(6px 6px 0px #000);
+            max-width: 380px;
+            aspect-ratio: 1;
+        }
+
+        .hero-graphic svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(6px 6px 0px var(--black));
         }
 
         .hero-content {
@@ -133,69 +178,79 @@
             display: inline-block;
             background: var(--coral);
             color: #fff;
-            font-size: 0.75rem;
+            font-family: var(--font-body);
+            font-size: 0.72rem;
             font-weight: 700;
             padding: 0.35rem 1rem;
             transform: rotate(-2deg);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.25rem;
             text-transform: uppercase;
-            letter-spacing: 0.15em;
+            letter-spacing: 0.18em;
             border: var(--border-w) solid var(--black);
-            box-shadow: 3px 3px 0px #000;
+            box-shadow: 3px 3px 0px var(--black);
         }
 
         .hero-content h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-family: var(--font-body);
+            font-size: clamp(2.8rem, 5.5vw, 4.25rem);
             font-weight: 800;
-            letter-spacing: -0.03em;
-            line-height: 1.1;
-            margin-bottom: 0.25rem;
+            letter-spacing: -0.035em;
+            line-height: 1.05;
+            margin-bottom: 0.4rem;
         }
 
         .hero-title {
-            font-size: clamp(1.1rem, 2vw, 1.4rem);
-            font-weight: 600;
+            font-family: var(--font-body);
+            font-size: clamp(1rem, 1.8vw, 1.25rem);
+            font-weight: 500;
             color: var(--blue);
             margin-bottom: 1.25rem;
+            letter-spacing: -0.01em;
         }
 
         .hero-tagline {
-            font-size: 1.05rem;
+            font-size: 1rem;
             color: var(--text-dim);
-            line-height: 1.7;
-            max-width: 520px;
+            line-height: 1.75;
+            max-width: 480px;
             margin-bottom: 2rem;
         }
 
         .hero-tagline strong {
             color: var(--text);
+            font-weight: 600;
         }
 
         .hero-badges {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.75rem;
+            gap: 0.6rem;
             margin-bottom: 2rem;
         }
 
         .hero-badges a {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.45rem;
             background: var(--bg-card);
             border: var(--border-w) solid var(--black);
             padding: 0.4rem 0.85rem;
             font-size: 0.78rem;
             font-weight: 600;
-            box-shadow: 3px 3px 0px #000;
-            transition: all 0.15s ease;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.15s var(--ease-out), box-shadow 0.15s var(--ease-out), background 0.15s var(--ease-out), color 0.15s var(--ease-out);
         }
 
         .hero-badges a:hover {
             transform: translate(-2px, -2px);
-            box-shadow: 5px 5px 0px #000;
+            box-shadow: 4px 4px 0px var(--black);
             background: var(--blue);
             color: #fff;
+        }
+
+        .hero-badges a:active {
+            transform: translate(0, 0);
+            box-shadow: 1px 1px 0px var(--black);
         }
 
         .hero-badges a img {
@@ -210,41 +265,40 @@
             flex-wrap: wrap;
         }
 
-        .btn-primary {
+        .btn {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: var(--coral);
-            color: #fff;
             border: var(--border-w) solid var(--black);
-            padding: 0.75rem 1.75rem;
+            padding: 0.8rem 1.75rem;
             font-size: 0.9rem;
             font-weight: 700;
-            font-family: var(--font);
+            font-family: var(--font-body);
             cursor: pointer;
             box-shadow: var(--shadow);
-            transition: all 0.15s ease;
+            transition: transform 0.15s var(--ease-out), box-shadow 0.15s var(--ease-out), background 0.15s var(--ease-out);
+            min-height: 48px;
+        }
+
+        .btn:active {
+            transform: translate(1px, 1px);
+            box-shadow: 2px 2px 0px var(--black);
+        }
+
+        .btn-primary {
+            background: var(--coral);
+            color: #fff;
         }
 
         .btn-primary:hover {
             transform: translate(-2px, -2px);
             box-shadow: var(--shadow-hover);
+            background: var(--coral-hover);
         }
 
         .btn-secondary {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
             background: var(--bg-card);
             color: var(--text);
-            border: var(--border-w) solid var(--black);
-            padding: 0.75rem 1.75rem;
-            font-size: 0.9rem;
-            font-weight: 700;
-            font-family: var(--font);
-            cursor: pointer;
-            box-shadow: var(--shadow);
-            transition: all 0.15s ease;
         }
 
         .btn-secondary:hover {
@@ -263,35 +317,38 @@
 
         .section-divider {
             border: none;
-            border-top: var(--border-w) solid var(--black);
+            height: var(--border-w);
+            background: repeating-linear-gradient(90deg, var(--black) 0, var(--black) 12px, transparent 12px, transparent 18px);
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .section-header {
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
         }
 
         .section-label {
             display: inline-block;
             background: var(--blue);
             color: #fff;
+            font-family: var(--font-body);
             font-size: 0.7rem;
             font-weight: 700;
             padding: 0.3rem 0.85rem;
-            transform: rotate(-1deg);
+            transform: rotate(-1.5deg);
             text-transform: uppercase;
-            letter-spacing: 0.15em;
+            letter-spacing: 0.16em;
             border: var(--border-w) solid var(--black);
-            box-shadow: 3px 3px 0px #000;
+            box-shadow: 3px 3px 0px var(--black);
             margin-bottom: 1rem;
         }
 
         .section-header h2 {
-            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-family: var(--font-body);
+            font-size: clamp(1.8rem, 4vw, 2.75rem);
             font-weight: 800;
-            letter-spacing: -0.02em;
-            line-height: 1.15;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
         }
 
         /* ── EXPERIENCE CARDS ── */
@@ -304,9 +361,9 @@
         .exp-card {
             background: var(--bg-card);
             border: var(--border-w) solid var(--black);
-            padding: 2rem;
+            padding: 1.75rem 2rem;
             box-shadow: var(--shadow);
-            transition: all 0.15s ease;
+            transition: transform 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out);
             position: relative;
             overflow: hidden;
         }
@@ -316,37 +373,36 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 6px;
+            width: 5px;
             height: 100%;
             background: var(--blue);
         }
 
-        .exp-card:nth-child(2)::before {
-            background: var(--coral);
-        }
-
-        .exp-card:nth-child(3)::before {
-            background: #FFB800;
-        }
-
-        .exp-card:nth-child(4)::before {
-            background: #00C853;
-        }
+        .exp-card:nth-child(2)::before { background: var(--coral); }
+        .exp-card:nth-child(3)::before { background: var(--yellow); }
+        .exp-card:nth-child(4)::before { background: var(--green); }
 
         .exp-card:hover {
             transform: translate(-3px, -3px);
-            box-shadow: var(--shadow-hover);
+            box-shadow: 7px 7px 0px var(--black);
+        }
+
+        .exp-card:active {
+            transform: translate(0, 0);
+            box-shadow: 2px 2px 0px var(--black);
         }
 
         .exp-card h3 {
-            font-size: 1.05rem;
+            font-family: var(--font-body);
+            font-size: 1rem;
             font-weight: 700;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.35rem;
+            letter-spacing: -0.01em;
         }
 
         .exp-card .exp-role {
-            font-size: 0.8rem;
-            color: var(--blue);
+            font-size: 0.78rem;
+            color: var(--text-dim);
             font-weight: 600;
             margin-bottom: 0.75rem;
         }
@@ -354,13 +410,15 @@
         .exp-card p {
             font-size: 0.88rem;
             color: var(--text-dim);
-            line-height: 1.6;
+            line-height: 1.65;
         }
 
         .exp-card p a {
             color: var(--blue);
+            font-weight: 600;
             text-decoration: underline;
             text-underline-offset: 2px;
+            text-decoration-thickness: 1.5px;
         }
 
         .exp-card p a:hover {
@@ -377,16 +435,18 @@
         .tech-category {
             background: var(--bg-card);
             border: var(--border-w) solid var(--black);
-            padding: 1.75rem;
+            padding: 1.5rem 1.75rem;
             box-shadow: var(--shadow);
         }
 
         .tech-category h3 {
-            font-size: 0.9rem;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
             font-weight: 700;
             margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--black);
+            padding-bottom: 0.6rem;
+            border-bottom: 2.5px solid var(--black);
+            letter-spacing: -0.01em;
         }
 
         .tech-tags {
@@ -401,18 +461,24 @@
             gap: 0.4rem;
             background: var(--bg);
             border: 2px solid var(--black);
-            padding: 0.3rem 0.7rem;
-            font-size: 0.72rem;
+            padding: 0.4rem 0.75rem;
+            font-size: 0.75rem;
             font-weight: 600;
-            transition: all 0.15s ease;
-            box-shadow: 2px 2px 0px #000;
+            box-shadow: 2px 2px 0px var(--black);
+            transition: transform 0.15s var(--ease-out), box-shadow 0.15s var(--ease-out), background 0.15s var(--ease-out), color 0.15s var(--ease-out);
+            min-height: 36px;
         }
 
         .tech-tag:hover {
             transform: translate(-1px, -1px);
-            box-shadow: 3px 3px 0px #000;
+            box-shadow: 3px 3px 0px var(--black);
             background: var(--blue);
             color: #fff;
+        }
+
+        .tech-tag:active {
+            transform: translate(0, 0);
+            box-shadow: 1px 1px 0px var(--black);
         }
 
         .tech-tag img {
@@ -425,32 +491,57 @@
             margin-top: 1.5rem;
             background: var(--bg-card);
             border: var(--border-w) solid var(--black);
-            padding: 1.75rem 2rem;
+            padding: 2rem;
             box-shadow: var(--shadow);
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
         }
 
+        .tech-highlight-item {
+            position: relative;
+            padding-left: 1rem;
+        }
+
+        .tech-highlight-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.15rem;
+            width: 4px;
+            height: calc(100% - 0.15rem);
+            background: var(--blue);
+            border-radius: 0;
+        }
+
+        .tech-highlight-item:nth-child(2)::before { background: var(--coral); }
+        .tech-highlight-item:nth-child(3)::before { background: var(--yellow); }
+
         .tech-highlight-item h4 {
-            font-size: 0.75rem;
+            font-family: var(--font-body);
+            font-size: 0.72rem;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.12em;
             color: var(--blue);
             font-weight: 700;
             margin-bottom: 0.5rem;
         }
 
+        .tech-highlight-item:nth-child(2) h4 { color: var(--coral); }
+        .tech-highlight-item:nth-child(3) h4 { color: #B8860B; }
+
         .tech-highlight-item p {
             font-size: 0.88rem;
             color: var(--text-dim);
-            line-height: 1.6;
+            line-height: 1.65;
         }
 
         .tech-highlight-item p a {
             color: var(--blue);
+            font-weight: 600;
             text-decoration: underline;
             text-underline-offset: 2px;
+            text-decoration-thickness: 1.5px;
         }
 
         .tech-highlight-item p a:hover {
@@ -466,18 +557,19 @@
         }
 
         .contact h2 {
+            font-family: var(--font-body);
             font-size: clamp(2rem, 4vw, 3rem);
             font-weight: 800;
-            letter-spacing: -0.02em;
+            letter-spacing: -0.03em;
             margin-bottom: 1rem;
         }
 
         .contact p {
-            font-size: 1.05rem;
+            font-size: 1rem;
             color: var(--text-dim);
-            max-width: 550px;
+            max-width: 500px;
             margin: 0 auto 2.5rem;
-            line-height: 1.7;
+            line-height: 1.75;
         }
 
         .contact-links {
@@ -494,16 +586,22 @@
             gap: 0.5rem;
             background: var(--bg-card);
             border: var(--border-w) solid var(--black);
-            padding: 0.75rem 1.5rem;
+            padding: 0.8rem 1.5rem;
             font-size: 0.85rem;
             font-weight: 700;
             box-shadow: var(--shadow);
-            transition: all 0.15s ease;
+            transition: transform 0.15s var(--ease-out), box-shadow 0.15s var(--ease-out), background 0.15s var(--ease-out), color 0.15s var(--ease-out);
+            min-height: 48px;
         }
 
         .contact-link:hover {
             transform: translate(-2px, -2px);
             box-shadow: var(--shadow-hover);
+        }
+
+        .contact-link:active {
+            transform: translate(1px, 1px);
+            box-shadow: 2px 2px 0px var(--black);
         }
 
         .contact-link.email:hover {
@@ -513,11 +611,6 @@
 
         .contact-link.github:hover {
             background: var(--black);
-            color: #fff;
-        }
-
-        .contact-link.linkedin:hover {
-            background: var(--blue);
             color: #fff;
         }
 
@@ -538,7 +631,6 @@
             left: 0;
             right: 0;
             background: var(--black);
-            border-bottom: var(--border-w) solid var(--coral);
             z-index: 99;
             flex-direction: column;
         }
@@ -548,12 +640,15 @@
         }
 
         .mobile-menu a {
-            color: rgba(255,255,255,0.8);
+            color: rgba(255,255,255,0.75);
             font-size: 1rem;
             font-weight: 600;
             padding: 1rem 2rem;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            transition: all 0.2s ease;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            transition: background 0.15s ease, color 0.15s ease;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
         }
 
         .mobile-menu a:hover {
@@ -570,8 +665,8 @@
                 text-align: center;
             }
 
-            .hero-visual svg {
-                max-width: 280px;
+            .hero-graphic {
+                max-width: 260px;
             }
 
             .hero-content {
@@ -602,15 +697,15 @@
 
             .tech-highlight {
                 grid-template-columns: 1fr;
-                gap: 1.25rem;
+                gap: 1.5rem;
             }
 
             .section {
-                padding: 3.5rem 1.5rem;
+                padding: 3.5rem 2rem;
             }
 
             .contact {
-                padding: 3.5rem 1.5rem 2rem;
+                padding: 3.5rem 2rem 2rem;
             }
         }
 
@@ -633,8 +728,8 @@
                 padding: 90px 1.25rem 2.5rem;
             }
 
-            .hero-visual svg {
-                max-width: 220px;
+            .hero-graphic {
+                max-width: 200px;
             }
 
             .section {
@@ -654,14 +749,19 @@
         /* ── SCROLL REVEAL ── */
         .reveal {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+            transform: translateY(24px);
+            transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
         }
 
         .reveal.visible {
             opacity: 1;
             transform: translateY(0);
         }
+
+        .reveal-delay-1 { transition-delay: 0.08s; }
+        .reveal-delay-2 { transition-delay: 0.16s; }
+        .reveal-delay-3 { transition-delay: 0.24s; }
+        .reveal-delay-4 { transition-delay: 0.32s; }
     </style>
 </head>
 <body>
@@ -674,10 +774,10 @@
             <a href="#arsenal">Tech Arsenal</a>
             <a href="#contact">Contact</a>
         </div>
-        <button class="nav-hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
+        <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
     </nav>
 
-    <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
         <a href="#hero">Home</a>
         <a href="#experience">Experience</a>
         <a href="#arsenal">Tech Arsenal</a>
@@ -687,28 +787,46 @@
     <main>
         <section class="hero" id="hero">
             <div class="hero-visual">
-                <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="20" y="20" width="360" height="360" rx="0" fill="#0066FF" stroke="#000" stroke-width="3"/>
-                    <rect x="50" y="50" width="300" height="300" rx="0" fill="#FAFAFA" stroke="#000" stroke-width="3"/>
-                    <circle cx="200" cy="200" r="80" fill="#FF6B6B" stroke="#000" stroke-width="3"/>
-                    <circle cx="200" cy="200" r="40" fill="#FFB800" stroke="#000" stroke-width="3"/>
-                    <rect x="120" y="100" width="60" height="60" fill="#00C853" stroke="#000" stroke-width="3" transform="rotate(15 150 130)"/>
-                    <polygon points="280,80 310,140 250,140" fill="#0066FF" stroke="#000" stroke-width="3"/>
-                    <rect x="260" y="260" width="70" height="70" fill="#FF6B6B" stroke="#000" stroke-width="3" transform="rotate(-10 295 295)"/>
-                    <circle cx="100" cy="300" r="30" fill="#FFB800" stroke="#000" stroke-width="3"/>
-                    <rect x="60" y="170" width="40" height="40" fill="#9C27B0" stroke="#000" stroke-width="3" transform="rotate(45 80 190)"/>
-                    <line x1="30" y1="30" x2="170" y2="30" stroke="#000" stroke-width="4"/>
-                    <line x1="30" y1="30" x2="30" y2="170" stroke="#000" stroke-width="4"/>
-                    <line x1="370" y1="370" x2="230" y2="370" stroke="#000" stroke-width="4"/>
-                    <line x1="370" y1="370" x2="370" y2="230" stroke="#000" stroke-width="4"/>
-                    <text x="200" y="210" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="36" font-weight="800" fill="#1A1A1A">&lt;/&gt;</text>
-                </svg>
+                <div class="hero-graphic">
+                    <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="10" y="10" width="380" height="380" fill="#0066FF" stroke="#0A0A0A" stroke-width="3"/>
+                        <rect x="35" y="35" width="330" height="330" fill="#F8F7F4" stroke="#0A0A0A" stroke-width="3"/>
+
+                        <rect x="60" y="55" width="120" height="120" fill="#FF6B6B" stroke="#0A0A0A" stroke-width="3" rx="0"/>
+                        <circle cx="120" cy="115" r="35" fill="#FFB800" stroke="#0A0A0A" stroke-width="3"/>
+                        <text x="120" y="125" text-anchor="middle" font-family="'Space Grotesk', sans-serif" font-size="28" font-weight="800" fill="#0A0A0A">&lt;/&gt;</text>
+
+                        <rect x="220" y="55" width="140" height="75" fill="#00C853" stroke="#0A0A0A" stroke-width="3"/>
+                        <rect x="238" y="72" width="50" height="8" fill="#0A0A0A" rx="1"/>
+                        <rect x="238" y="88" width="80" height="6" fill="#0A0A0A" rx="1" opacity="0.5"/>
+                        <rect x="238" y="100" width="65" height="6" fill="#0A0A0A" rx="1" opacity="0.3"/>
+
+                        <rect x="220" y="150" width="140" height="95" fill="#9C27B0" stroke="#0A0A0A" stroke-width="3"/>
+                        <circle cx="290" cy="197" r="30" fill="none" stroke="#FFB800" stroke-width="3"/>
+                        <text x="290" y="205" text-anchor="middle" font-family="'Space Grotesk', sans-serif" font-size="22" font-weight="800" fill="#FFB800">AI</text>
+
+                        <rect x="60" y="200" width="140" height="60" fill="#0066FF" stroke="#0A0A0A" stroke-width="3"/>
+                        <rect x="72" y="212" width="30" height="36" fill="none" stroke="#fff" stroke-width="2"/>
+                        <rect x="110" y="218" width="70" height="6" fill="#fff" rx="1"/>
+                        <rect x="110" y="232" width="50" height="6" fill="#fff" rx="1" opacity="0.6"/>
+
+                        <rect x="60" y="280" width="280" height="80" fill="#FFB800" stroke="#0A0A0A" stroke-width="3"/>
+                        <rect x="75" y="296" width="100" height="8" fill="#0A0A0A" rx="1"/>
+                        <rect x="75" y="314" width="160" height="6" fill="#0A0A0A" rx="1" opacity="0.5"/>
+                        <rect x="75" y="330" width="120" height="6" fill="#0A0A0A" rx="1" opacity="0.3"/>
+                        <circle cx="310" cy="320" r="18" fill="#FF6B6B" stroke="#0A0A0A" stroke-width="2"/>
+                        <text x="310" y="327" text-anchor="middle" font-family="'Space Grotesk', sans-serif" font-size="16" font-weight="800" fill="#fff">+</text>
+
+                        <circle cx="160" cy="390" r="5" fill="#0A0A0A"/>
+                        <circle cx="240" cy="390" r="5" fill="#0A0A0A"/>
+                    </svg>
+                </div>
             </div>
             <div class="hero-content">
                 <div class="hero-eyebrow">Senior Staff Engineer</div>
                 <h1>Haotian Wu</h1>
-                <div class="hero-title">Full-Stack Architect & AI Solutions Engineer</div>
-                <p class="hero-tagline">Bridging enterprise-scale engineering at <strong>SPH Media</strong> & <strong>Lazada</strong> with agile, AI-native 0-to-1 product mastery.</p>
+                <div class="hero-title">Full-Stack Architect &amp; AI Solutions Engineer</div>
+                <p class="hero-tagline">Bridging enterprise-scale engineering at <strong>SPH Media</strong> &amp; <strong>Lazada</strong> with agile, AI-native 0-to-1 product mastery.</p>
                 <div class="hero-badges">
                     <a href="https://sph.com.sg/" target="_blank" rel="noopener"><img src="images/logos/sph.svg" alt="SPH Media"><span>SPH Media</span></a>
                     <a href="https://www.lazada.com/" target="_blank" rel="noopener"><img src="images/logos/lazada.svg" alt="Lazada"><span>Lazada</span></a>
@@ -716,36 +834,36 @@
                     <a href="https://www.unimelb.edu.au/" target="_blank" rel="noopener"><img src="images/logos/uom.svg" alt="University of Melbourne"><span>UniMelb</span></a>
                 </div>
                 <div class="hero-ctas">
-                    <a href="mailto:timmy.wu@hotmail.com" class="btn-primary">Get in Touch &rarr;</a>
-                    <a href="https://github.com/timwuhaotian" target="_blank" rel="noopener" class="btn-secondary">GitHub &rarr;</a>
+                    <a href="mailto:timmy.wu@hotmail.com" class="btn btn-primary">Get in Touch &rarr;</a>
+                    <a href="https://github.com/timwuhaotian" target="_blank" rel="noopener" class="btn btn-secondary">GitHub &rarr;</a>
                 </div>
             </div>
         </section>
 
-        <hr class="section-divider">
+        <hr class="section-divider" aria-hidden="true">
 
         <section class="section" id="experience">
             <div class="section-header reveal">
-                <div class="section-label">Experience & Impact</div>
+                <div class="section-label">Experience &amp; Impact</div>
                 <h2>Proven Track Record</h2>
             </div>
             <div class="exp-grid">
-                <div class="exp-card reveal">
+                <div class="exp-card reveal reveal-delay-1">
                     <h3>SPH Media</h3>
                     <div class="exp-role">Senior Staff Engineer</div>
                     <p>Restructured flagship publication architecture. Optimized SSR/ISR workflows for millions of monthly users, boosting PageSpeed by 30%.</p>
                 </div>
-                <div class="exp-card reveal">
+                <div class="exp-card reveal reveal-delay-2">
                     <h3>Lazada</h3>
                     <div class="exp-role">Senior Manager</div>
                     <p>Led tech planning for high-impact platforms serving 200,000+ daily users. Mentored teams in engineering excellence and code quality.</p>
                 </div>
-                <div class="exp-card reveal">
+                <div class="exp-card reveal reveal-delay-3">
                     <h3>RAG Systems</h3>
                     <div class="exp-role">0-to-1 Architect</div>
                     <p>Designed intelligent retrieval pipelines using <a href="https://python.langchain.com/" target="_blank" rel="noopener">LangChain</a> for LLM orchestration, Vector Search, and secure document parsing.</p>
                 </div>
-                <div class="exp-card reveal">
+                <div class="exp-card reveal reveal-delay-4">
                     <h3>SaaS Foundations</h3>
                     <div class="exp-role">End-to-End Builder</div>
                     <p>Implemented robust foundations: <a href="https://next-auth.js.org/" target="_blank" rel="noopener">NextAuth</a>, AWS Serverless, MongoDB Atlas, and Webhook-driven billing systems.</p>
@@ -753,42 +871,42 @@
             </div>
         </section>
 
-        <hr class="section-divider">
+        <hr class="section-divider" aria-hidden="true">
 
         <section class="section" id="arsenal">
             <div class="section-header reveal">
                 <div class="section-label">Technical Arsenal</div>
-                <h2>Skills & Tools</h2>
+                <h2>Skills &amp; Tools</h2>
             </div>
             <div class="tech-categories reveal">
                 <div class="tech-category">
                     <h3>Frontend</h3>
                     <div class="tech-tags">
-                        <a href="https://react.dev/" target="_blank" rel="noopener" class="tech-tag"><img src="https://cdn.simpleicons.org/react" alt="React">React 19</a>
-                        <a href="https://nextjs.org/" target="_blank" rel="noopener" class="tech-tag"><img src="https://cdn.simpleicons.org/nextdotjs" alt="Next.js">Next.js 16</a>
-                        <a href="https://www.typescriptlang.org/" target="_blank" rel="noopener" class="tech-tag"><img src="https://cdn.simpleicons.org/typescript" alt="TypeScript">TypeScript</a>
-                        <a href="https://tailwindcss.com/" target="_blank" rel="noopener" class="tech-tag"><img src="https://cdn.simpleicons.org/tailwindcss" alt="Tailwind">Tailwind 4</a>
-                        <a href="https://www.framer.com/motion/" target="_blank" rel="noopener" class="tech-tag"><img src="https://cdn.simpleicons.org/framer" alt="Framer Motion">Framer Motion</a>
-                        <a href="https://valtio.pmnd.rs/" target="_blank" rel="noopener" class="tech-tag"><img src="https://cdn.simpleicons.org/redux" alt="Valtio">Valtio</a>
+                        <a href="https://react.dev/" target="_blank" rel="noopener" class="tech-tag"><img src="https://cdn.simpleicons.org/react" alt="">React 19</a>
+                        <a href="https://nextjs.org/" target="_blank" rel="noopener" class="tech-tag"><img src="https://cdn.simpleicons.org/nextdotjs" alt="">Next.js 16</a>
+                        <a href="https://www.typescriptlang.org/" target="_blank" rel="noopener" class="tech-tag"><img src="https://cdn.simpleicons.org/typescript" alt="">TypeScript</a>
+                        <a href="https://tailwindcss.com/" target="_blank" rel="noopener" class="tech-tag"><img src="https://cdn.simpleicons.org/tailwindcss" alt="">Tailwind 4</a>
+                        <a href="https://www.framer.com/motion/" target="_blank" rel="noopener" class="tech-tag"><img src="https://cdn.simpleicons.org/framer" alt="">Framer Motion</a>
+                        <a href="https://valtio.pmnd.rs/" target="_blank" rel="noopener" class="tech-tag"><img src="https://cdn.simpleicons.org/redux" alt="">Valtio</a>
                     </div>
                 </div>
                 <div class="tech-category">
-                    <h3>Backend & Infra</h3>
+                    <h3>Backend &amp; Infra</h3>
                     <div class="tech-tags">
-                        <a href="https://nodejs.org/" target="_blank" rel="noopener" class="tech-tag"><img src="https://cdn.simpleicons.org/nodedotjs" alt="Node.js">Node.js</a>
-                        <a href="https://expressjs.com/" target="_blank" rel="noopener" class="tech-tag"><img src="https://cdn.simpleicons.org/express" alt="Express">Express</a>
-                        <a href="https://aws.amazon.com/" target="_blank" rel="noopener" class="tech-tag"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/amazonwebservices.svg" alt="AWS">AWS Serverless</a>
-                        <a href="https://www.mongodb.com/" target="_blank" rel="noopener" class="tech-tag"><img src="https://cdn.simpleicons.org/mongodb" alt="MongoDB">MongoDB</a>
-                        <a href="https://redis.io/" target="_blank" rel="noopener" class="tech-tag"><img src="https://cdn.simpleicons.org/redis" alt="Redis">Redis</a>
-                        <a href="https://www.docker.com/" target="_blank" rel="noopener" class="tech-tag"><img src="https://cdn.simpleicons.org/docker" alt="Docker">Docker</a>
+                        <a href="https://nodejs.org/" target="_blank" rel="noopener" class="tech-tag"><img src="https://cdn.simpleicons.org/nodedotjs" alt="">Node.js</a>
+                        <a href="https://expressjs.com/" target="_blank" rel="noopener" class="tech-tag"><img src="https://cdn.simpleicons.org/express" alt="">Express</a>
+                        <a href="https://aws.amazon.com/" target="_blank" rel="noopener" class="tech-tag"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/amazonwebservices.svg" alt="">AWS Serverless</a>
+                        <a href="https://www.mongodb.com/" target="_blank" rel="noopener" class="tech-tag"><img src="https://cdn.simpleicons.org/mongodb" alt="">MongoDB</a>
+                        <a href="https://redis.io/" target="_blank" rel="noopener" class="tech-tag"><img src="https://cdn.simpleicons.org/redis" alt="">Redis</a>
+                        <a href="https://www.docker.com/" target="_blank" rel="noopener" class="tech-tag"><img src="https://cdn.simpleicons.org/docker" alt="">Docker</a>
                     </div>
                 </div>
                 <div class="tech-category">
-                    <h3>Testing & CI/CD</h3>
+                    <h3>Testing &amp; CI/CD</h3>
                     <div class="tech-tags">
-                        <a href="https://playwright.dev/" target="_blank" rel="noopener" class="tech-tag"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/playwright.svg" alt="Playwright">Playwright</a>
-                        <a href="https://vitest.dev/" target="_blank" rel="noopener" class="tech-tag"><img src="https://cdn.simpleicons.org/vitest" alt="Vitest">Vitest</a>
-                        <a href="https://github.com/features/actions" target="_blank" rel="noopener" class="tech-tag"><img src="https://cdn.simpleicons.org/githubactions" alt="GitHub Actions">GitHub Actions</a>
+                        <a href="https://playwright.dev/" target="_blank" rel="noopener" class="tech-tag"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/playwright.svg" alt="">Playwright</a>
+                        <a href="https://vitest.dev/" target="_blank" rel="noopener" class="tech-tag"><img src="https://cdn.simpleicons.org/vitest" alt="">Vitest</a>
+                        <a href="https://github.com/features/actions" target="_blank" rel="noopener" class="tech-tag"><img src="https://cdn.simpleicons.org/githubactions" alt="">GitHub Actions</a>
                     </div>
                 </div>
             </div>
@@ -799,7 +917,7 @@
                 </div>
                 <div class="tech-highlight-item">
                     <h4>AI Capabilities</h4>
-                    <p>Proficient in <a href="https://www.langchain.com/" target="_blank" rel="noopener">LangChain</a> ecosystem, Vector Embedding optimization, RAG tuning, and building agentic workflows integrated with business logic.</p>
+                    <p>Proficient in <a href="https://www.langchain.com/" target="_blank" rel="noopener">LangChain</a> ecosystem, Vector Embedding optimization, RAG tuning, and agentic workflows integrated with business logic.</p>
                 </div>
                 <div class="tech-highlight-item">
                     <h4>AI-Native Workflow</h4>
@@ -808,7 +926,7 @@
             </div>
         </section>
 
-        <hr class="section-divider">
+        <hr class="section-divider" aria-hidden="true">
 
         <section class="contact" id="contact">
             <div class="reveal">
@@ -828,54 +946,63 @@
     </footer>
 
     <script>
-        const hamburger = document.getElementById('hamburger');
-        const mobileMenu = document.getElementById('mobileMenu');
+        (function() {
+            var hamburger = document.getElementById('hamburger');
+            var mobileMenu = document.getElementById('mobileMenu');
 
-        hamburger.addEventListener('click', () => {
-            mobileMenu.classList.toggle('open');
-            hamburger.textContent = mobileMenu.classList.contains('open') ? '\u2715' : '\u2630';
-        });
-
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('open');
-                hamburger.textContent = '\u2630';
+            hamburger.addEventListener('click', function() {
+                var isOpen = mobileMenu.classList.toggle('open');
+                hamburger.textContent = isOpen ? '\u2715' : '\u2630';
+                hamburger.setAttribute('aria-expanded', isOpen);
             });
-        });
 
-        const navLinks = document.querySelectorAll('.nav-links a');
-        const sections = document.querySelectorAll('section[id]');
-
-        function updateActiveNav() {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
-                if (window.scrollY >= sectionTop) {
-                    current = section.getAttribute('id');
-                }
+            mobileMenu.querySelectorAll('a').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.remove('open');
+                    hamburger.textContent = '\u2630';
+                    hamburger.setAttribute('aria-expanded', 'false');
+                });
             });
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + current) {
-                    link.classList.add('active');
-                }
-            });
-        }
 
-        window.addEventListener('scroll', updateActiveNav, { passive: true });
+            var navLinks = document.querySelectorAll('.nav-links a');
+            var sections = document.querySelectorAll('section[id]');
 
-        const revealElements = document.querySelectorAll('.reveal');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+            function updateActiveNav() {
+                var current = '';
+                sections.forEach(function(section) {
+                    if (window.scrollY >= section.offsetTop - 120) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                navLinks.forEach(function(link) {
+                    link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+                });
+            }
 
-        revealElements.forEach(el => observer.observe(el));
+            window.addEventListener('scroll', updateActiveNav, { passive: true });
 
-        updateActiveNav();
+            var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            if (!prefersReduced) {
+                var revealElements = document.querySelectorAll('.reveal');
+                var observer = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+                revealElements.forEach(function(el) { observer.observe(el); });
+            } else {
+                document.querySelectorAll('.reveal').forEach(function(el) {
+                    el.classList.add('visible');
+                });
+            }
+
+            updateActiveNav();
+        })();
     </script>
 </body>
 </html>
