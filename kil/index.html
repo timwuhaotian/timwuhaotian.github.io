@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kil — a native macOS terminal written in Rust with GPUI: vertical tabs, animated split panes, and jobs that outlive the window. Free and open source (MIT).">
+    <title>Kil — native macOS terminal in Rust</title>
+    <link rel="canonical" href="https://timwuhaotian.github.io/kil/">
+
+    <meta property="og:title" content="Kil — native macOS terminal in Rust">
+    <meta property="og:description" content="Vertical tabs, animated split panes, and jobs that outlive the window: quit or crash, reopen, and every pane is back on its live process.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://timwuhaotian.github.io/kil/">
+    <meta property="og:site_name" content="timwuhaotian open source">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Kil — native macOS terminal in Rust">
+    <meta name="twitter:description" content="Vertical tabs, animated split panes, and jobs that outlive the window: quit or crash, reopen, and every pane is back on its live process.">
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <script src="/theme.js"></script>
+    <link rel="stylesheet" href="/assets/style.css">
+    <style>:root { --accent: var(--gray-900); }</style>
+</head>
+<body>
+
+    <nav>
+        <a href="/" class="nav-logo">HT<span>.</span>WU</a>
+        <div class="nav-links">
+            <a href="/#projects">Projects</a>
+            <a href="https://github.com/timwuhaotian" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://timwuhaotian.dev" target="_blank" rel="noopener">timwuhaotian.dev</a>
+        </div>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"></button>
+        <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
+        <a href="/#projects">Projects</a>
+        <a href="https://github.com/timwuhaotian" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://timwuhaotian.dev" target="_blank" rel="noopener">timwuhaotian.dev</a>
+    </div>
+
+    <main>
+        <section class="hero" id="hero">
+            <div class="hero-visual">
+                <div class="hero-graphic">
+                    <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <rect class="hg-frame" x="30" y="46" width="340" height="308" rx="16"/>
+                        <path class="hg-bar" d="M30 62a16 16 0 0 1 16-16h308a16 16 0 0 1 16 16v24H30z"/>
+                        <line class="hg-rule" x1="30" y1="86" x2="370" y2="86"/>
+                        <circle class="hg-dot" cx="52" cy="66" r="4"/>
+                        <circle class="hg-dot" cx="66" cy="66" r="4"/>
+                        <circle class="hg-dot" cx="80" cy="66" r="4"/>
+
+                        <rect class="hg-panel-2" x="46" y="104" width="84" height="220" rx="10"/>
+                        <rect class="hg-blue" x="54" y="116" width="68" height="28" rx="6"/>
+                        <rect class="hg-slate" x="54" y="152" width="68" height="28" rx="6"/>
+                        <rect class="hg-slate" x="54" y="188" width="68" height="28" rx="6"/>
+                        <circle class="hg-stroke-amber" cx="112" cy="166" r="5"/>
+
+                        <rect class="hg-panel" x="142" y="104" width="212" height="220" rx="10"/>
+                        <text class="hg-mono hg-text" x="162" y="140" style="font-size:18px">&gt;_</text>
+                        <rect class="hg-muted" x="162" y="164" width="150" height="6" rx="3"/>
+                        <rect class="hg-muted" x="162" y="182" width="110" height="6" rx="3"/>
+                        <rect class="hg-muted" x="162" y="200" width="170" height="6" rx="3"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="hero-content">
+                <a class="back-link" href="/#projects">&larr; All projects</a>
+                <div class="hero-eyebrow">Terminal &middot; macOS app</div>
+                <h1>Kil</h1>
+                <div class="hero-title">A native macOS terminal whose jobs outlive the window.</div>
+                <p class="hero-tagline">A native macOS terminal written in Rust, built on <strong>GPUI</strong> (Metal rendering) and <strong>alacritty_terminal</strong>. Vertical tabs, animated split panes and shortcuts you can rebind &mdash; and when Kil quits or crashes, your jobs keep running: reopen it and every pane is back on its live process, with vim's unsaved buffer, the ssh connection and the half-finished build where you left them. <strong>macOS only for now: Apple silicon, macOS 14 or later.</strong></p>
+                <div class="hero-badges">
+                    <span class="chip"><span class="dot"></span>&#9733; 2 stars</span>
+                    <span class="chip"><span class="dot"></span>MIT</span>
+                    <span class="chip"><span class="dot"></span>macOS 14+ &middot; Apple silicon</span>
+                    <span class="chip"><span class="dot"></span>Rust &middot; GPUI &middot; Metal</span>
+                </div>
+                <div class="hero-ctas">
+                    <a href="https://raw.githubusercontent.com/timwuhaotian/kil/main/releases/Kil-arm64.dmg" target="_blank" rel="noopener" class="btn btn-primary">Download DMG &rarr;</a>
+                    <a href="https://github.com/timwuhaotian/kil" target="_blank" rel="noopener" class="btn btn-secondary">GitHub repository &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider" aria-hidden="true">
+
+        <section class="section" id="highlights">
+            <div class="section-header reveal">
+                <div class="section-label">Highlights</div>
+                <h2>Vertical tabs, split panes, jobs that don't die.</h2>
+                <p>Kil owns every process, PID and file descriptor it creates &mdash; so a crash or a quit only detaches you from work that is still running.</p>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card reveal reveal-delay-1">
+                    <h3>Vertical tabs in a sidebar</h3>
+                    <p>A ring marks a tab with a running job, a dot one whose job finished while you weren't looking. Drag a tab to reorder it, double-click to rename it (IME works, Chinese included), and a new tab is named for its folder.</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-2">
+                    <h3>Animated split panes</h3>
+                    <p>Panes animate open and closed with the keys or the two buttons at the top right of the tab. A new pane opens where the pane it split is, they share the tab evenly, and the focused pane is the bright one with a thin accent border on all four sides.</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-3">
+                    <h3>Jobs outlive the window</h3>
+                    <p>A small session server (<code>kil --server</code>, the same binary) holds every pane's terminal. <code>&#8984;Q</code> and closing the window only detach from it &mdash; and so does a crash. The next launch goes back on the same processes, with the full screen, scrollback and input modes.</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-1">
+                    <h3>Remote panes for Agent on Edge</h3>
+                    <p>Settings &#9656; Agent on Edge shows a QR code that pairs an iPhone to the same session server through a TLS tunnel, so the panes on the phone are the panes on the desk. <code>kil --remote</code> does the same from a terminal, and the standalone <code>kil-remote</code> binary works without starting the server. No cloud service or third party is involved.</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-2">
+                    <h3>Notifications from programs</h3>
+                    <p>When a program posts one (OSC 9 or 777: killi, Claude Code and others do when a long job ends) and its tab isn't in view, macOS shows it &mdash; naming the job, tab and folder it came from &mdash; and the tab gets the dot. Clicking it brings Kil forward and goes to the pane that sent it.</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-3">
+                    <h3>Comes back after a restart, too</h3>
+                    <p>The layout, each pane's directory and the window frame are saved within 2&nbsp;s of a change, and each pane's screen and scrollback every 30&nbsp;s while it prints. An idle window doesn't wake: no CPU at rest, and a blinking cursor redraws only itself.</p>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider" aria-hidden="true">
+
+        <section class="section" id="get-it">
+            <div class="section-header reveal">
+                <div class="section-label">Get it</div>
+                <h2>Download, drag, run.</h2>
+                <p>The DMG in the repo's <code>releases/</code> folder is always the latest Kil, signed with a Developer ID and notarized by Apple. From then on Kil keeps itself up to date and asks before it installs.</p>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card reveal reveal-delay-1">
+                    <h3>Download</h3>
+                    <p>Grab <code>Kil-arm64.dmg</code>, open it, and drag <strong>Kil</strong> to <strong>Applications</strong>:</p>
+                    <ul class="fact-list" style="margin-top:0.9rem">
+                        <li><strong>Kil-arm64.dmg</strong> &mdash; v0.0.34, 5.7&nbsp;MB</li>
+                        <li><strong>Platform</strong> &mdash; macOS 14 or later, Apple silicon</li>
+                        <li><strong>Installed size</strong> &mdash; 8.6&nbsp;MB</li>
+                        <li><strong>Signing</strong> &mdash; Developer ID signed, notarized by Apple</li>
+                        <li><strong>Updates</strong> &mdash; checked at launch and every six hours, then it asks</li>
+                    </ul>
+                </div>
+                <div class="feature-card reveal reveal-delay-2">
+                    <h3>Verify the download</h3>
+                    <p><code>releases/</code> also holds the DMG's <code>.sha256</code> next to it:</p>
+                    <div class="code-block" style="margin-top:0.9rem;margin-bottom:0"><code>shasum -a 256 -c Kil-arm64.dmg.sha256</code></div>
+                </div>
+                <div class="feature-card reveal reveal-delay-3">
+                    <h3>Build from source</h3>
+                    <p>You need a Mac with Apple silicon, <strong>Xcode</strong> with its Metal toolchain (GPUI compiles shaders at build time) and <strong>Rust 1.94</strong> or later:</p>
+                    <div class="code-block" style="margin-top:0.9rem;margin-bottom:0.9rem"><code>git clone https://github.com/timwuhaotian/kil.git
+cd kil
+cargo run -p kil --release <span class="comment"># run it straight from the build</span></code></div>
+                    <p>For a <code>Kil.app</code> with its icon and Info.plist:</p>
+                    <div class="code-block" style="margin-top:0.9rem;margin-bottom:0"><code>scripts/bundle.sh release <span class="comment"># → target/release/Kil.app</span>
+ditto target/release/Kil.app /Applications/Kil.app</code></div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider" aria-hidden="true">
+
+        <section class="section" id="links">
+            <div class="section-header reveal">
+                <div class="section-label">Links</div>
+                <h2>Dig deeper.</h2>
+            </div>
+            <div class="link-cards reveal">
+                <a class="link-card" href="https://github.com/timwuhaotian/kil" target="_blank" rel="noopener">
+                    <strong>GitHub repository &rarr;</strong>
+                    <span>Source, issues and the full README.</span>
+                </a>
+                <a class="link-card" href="https://raw.githubusercontent.com/timwuhaotian/kil/main/releases/Kil-arm64.dmg" target="_blank" rel="noopener">
+                    <strong>Download Kil-arm64.dmg &rarr;</strong>
+                    <span>v0.0.34 &middot; 5.7 MB &middot; always the latest build.</span>
+                </a>
+                <a class="link-card" href="https://github.com/timwuhaotian/kil/blob/main/CHANGELOG.md" target="_blank" rel="noopener">
+                    <strong>Changelog &rarr;</strong>
+                    <span>What's new in each release.</span>
+                </a>
+                <a class="link-card" href="/killi/">
+                    <strong>killi &rarr;</strong>
+                    <span>The AI coding agent that lives in Kil &mdash; and posts notifications when a long job ends.</span>
+                </a>
+                <a class="link-card" href="/kiled/">
+                    <strong>Kiled &rarr;</strong>
+                    <span>Kil's sibling: a native macOS code editor in Rust and GPUI.</span>
+                </a>
+                <a class="link-card" href="https://timwuhaotian.dev" target="_blank" rel="noopener">
+                    <strong>Personal site &rarr;</strong>
+                    <span>timwuhaotian.dev &mdash; work and writing.</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2026 Haotian Wu &mdash; open source at <a href="https://github.com/timwuhaotian" target="_blank" rel="noopener">github.com/timwuhaotian</a> &middot; <a href="https://timwuhaotian.dev" target="_blank" rel="noopener">timwuhaotian.dev</a>
+    </footer>
+
+    <script src="/assets/app.js"></script>
+</body>
+</html>

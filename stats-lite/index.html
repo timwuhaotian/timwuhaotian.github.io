@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="stats-lite — CPU and disk usage in the macOS menu bar, and nothing else. No settings, no charts, no dock icon, and no CPU burned while the machine idles. macOS 14+, Apple silicon, Rust, MIT.">
+    <title>stats-lite — CPU and disk usage in the macOS menu bar, nothing else</title>
+    <link rel="canonical" href="https://timwuhaotian.github.io/stats-lite/">
+
+    <meta property="og:title" content="stats-lite — CPU and disk usage in the macOS menu bar, nothing else">
+    <meta property="og:description" content="A tiny Rust menu-bar app: CPU % and used % of the boot volume, monospaced and right-aligned, with nothing burned at idle. macOS 14+, Apple silicon, MIT.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://timwuhaotian.github.io/stats-lite/">
+    <meta property="og:site_name" content="timwuhaotian open source">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="stats-lite — CPU and disk usage in the macOS menu bar, nothing else">
+    <meta name="twitter:description" content="A tiny Rust menu-bar app: CPU % and used % of the boot volume, monospaced and right-aligned, with nothing burned at idle. macOS 14+, Apple silicon, MIT.">
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <script src="/theme.js"></script>
+    <link rel="stylesheet" href="/assets/style.css">
+    <style>:root { --accent: var(--gray-900); }</style>
+</head>
+<body>
+
+    <nav>
+        <a href="/" class="nav-logo">HT<span>.</span>WU</a>
+        <div class="nav-links">
+            <a href="/#projects">Projects</a>
+            <a href="https://github.com/timwuhaotian" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://timwuhaotian.dev" target="_blank" rel="noopener">timwuhaotian.dev</a>
+        </div>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"></button>
+        <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
+        <a href="/#projects">Projects</a>
+        <a href="https://github.com/timwuhaotian" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://timwuhaotian.dev" target="_blank" rel="noopener">timwuhaotian.dev</a>
+    </div>
+
+    <main>
+        <section class="hero" id="hero">
+            <div class="hero-visual">
+                <div class="hero-graphic">
+                    <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <rect class="hg-frame" x="30" y="46" width="340" height="308" rx="16"/>
+                        <path class="hg-bar" d="M30 62a16 16 0 0 1 16-16h308a16 16 0 0 1 16 16v24H30z"/>
+                        <line class="hg-rule" x1="30" y1="86" x2="370" y2="86"/>
+                        <circle class="hg-dot" cx="52" cy="66" r="4"/>
+                        <circle class="hg-dot" cx="66" cy="66" r="4"/>
+                        <circle class="hg-dot" cx="80" cy="66" r="4"/>
+
+                        <rect class="hg-invert" x="46" y="104" width="308" height="44" rx="10"/>
+                        <rect class="hg-ink" x="58" y="114" width="72" height="24" rx="12"/>
+                        <rect class="hg-ink" x="140" y="114" width="72" height="24" rx="12"/>
+                        <text class="hg-mono hg-dark" x="94" y="130" text-anchor="middle" style="font-size:12px">34%</text>
+                        <text class="hg-mono hg-dark" x="176" y="130" text-anchor="middle" style="font-size:12px">61%</text>
+                        <rect class="hg-stroke-blue" x="226" y="121" width="10" height="10" rx="2"/>
+                        <rect class="hg-stroke-amber" x="246" y="122" width="10" height="8" rx="2"/>
+
+                        <rect class="hg-panel" x="46" y="164" width="308" height="168" rx="10"/>
+                        <rect class="hg-blue" x="70" y="260" width="24" height="40" rx="4"/>
+                        <rect class="hg-slate" x="114" y="230" width="24" height="70" rx="4"/>
+                        <rect class="hg-blue" x="158" y="245" width="24" height="55" rx="4"/>
+                        <rect class="hg-slate" x="202" y="210" width="24" height="90" rx="4"/>
+                        <rect class="hg-blue" x="246" y="235" width="24" height="65" rx="4"/>
+                        <rect class="hg-slate" x="290" y="220" width="24" height="80" rx="4"/>
+                        <line class="hg-rule" x1="62" y1="302" x2="338" y2="302"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="hero-content">
+                <a class="back-link" href="/#projects">&larr; All projects</a>
+                <div class="hero-eyebrow">Menu bar · macOS app</div>
+                <h1>stats-lite</h1>
+                <div class="hero-title">CPU and disk usage in the macOS menu bar, and nothing else.</div>
+                <p class="hero-tagline">No settings, no charts, no dock icon: a <strong>cpu</strong> icon with the CPU %, an <strong>internaldrive</strong> icon with the used % of the boot volume. Numbers are monospaced and right-aligned, so neighbouring icons never bounce as values change. An idle machine costs nothing — CPU is sampled every 2&nbsp;s (disk every 30&nbsp;s), and the title is only rewritten when a number changes, so there are no WindowServer redraws at rest.</p>
+                <div class="hero-badges">
+                    <span class="chip">★ 0 stars</span>
+                    <span class="chip">MIT</span>
+                    <span class="chip">macOS 14+ · Apple silicon</span>
+                    <span class="chip">Rust</span>
+                </div>
+                <div class="hero-ctas">
+                    <a href="https://github.com/timwuhaotian/stats-lite/raw/main/releases/StatsLite-arm64.dmg" target="_blank" rel="noopener" class="btn btn-primary">Download DMG &rarr;</a>
+                    <a href="https://github.com/timwuhaotian/stats-lite" target="_blank" rel="noopener" class="btn btn-secondary">GitHub repository &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider" aria-hidden="true">
+
+        <section class="section" id="highlights">
+            <div class="section-header reveal">
+                <div class="section-label">Highlights</div>
+                <h2>Two numbers. Nothing else.</h2>
+                <p>Most menu-bar monitors grow settings panels, graphs and background daemons. stats-lite stays at two readings — and spends nothing while your machine sits idle.</p>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card reveal reveal-delay-1">
+                    <h3>Two readings, one line</h3>
+                    <p>The menu-bar title reads e.g. <strong>cpu 12% &middot; drive 34.2%</strong>: CPU usage and the used % of the boot volume (<code>/System/Volumes/Data</code> where it exists, <code>/</code> elsewhere).</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-2">
+                    <h3>Honest disk math</h3>
+                    <p>Purgeable space counts as used, and the number is the APFS container's used share — <code>df</code>'s Avail column, while <code>df</code>'s Capacity only counts the Data volume's own files.</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-3">
+                    <h3>One decimal, on purpose</h3>
+                    <p>1% of a disk is gigabytes, so a whole-percent number can sit unchanged for days. Disk shows one decimal: 34.2%, never 34%.</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-1">
+                    <h3>Nothing burned at idle</h3>
+                    <p>CPU is sampled every 2&nbsp;s (disk every 30&nbsp;s) and the title is rewritten only when a number changes, so there are no WindowServer redraws at rest. 1&nbsp;s polling is what made Stats burn 59% CPU watching an idle machine.</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-2">
+                    <h3>No bouncing icons</h3>
+                    <p>Numbers are monospaced and right-aligned, so neighbouring menu-bar icons never shift as values change.</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-3">
+                    <h3>Signed, notarized, self-updating</h3>
+                    <p>Signed with a Developer ID and notarized by Apple. A new release is checked at launch and every six hours, downloads in the background, and installs when you quit — or right away with <strong>Restart to Update</strong>.</p>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider" aria-hidden="true">
+
+        <section class="section" id="get-it">
+            <div class="section-header reveal">
+                <div class="section-label">Get it</div>
+                <h2>Download it, drag it, forget it.</h2>
+                <p>Grab the DMG, open it and drag <strong>StatsLite</strong> to <strong>Applications</strong>. From then on it keeps itself up to date.</p>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card reveal reveal-delay-1">
+                    <h3>Download</h3>
+                    <p>Always the latest stats-lite, straight from the repo:</p>
+                    <ul class="fact-list" style="margin-top:0.9rem">
+                        <li><strong>StatsLite-arm64.dmg</strong> — 662,505 bytes (about 647&nbsp;KB)</li>
+                        <li><strong>macOS 14 or later</strong> · Apple silicon only</li>
+                        <li><strong>Version 0.2.5</strong> — sha256 <code>86e1738f…0338bd</code>, published as <code>releases/latest.toml</code></li>
+                        <li><strong>Install</strong> — open the DMG, drag StatsLite to Applications</li>
+                    </ul>
+                </div>
+                <div class="feature-card reveal reveal-delay-2">
+                    <h3>Build from source</h3>
+                    <p>You need a Mac with Apple silicon and Rust 1.94 or later:</p>
+                    <div class="code-block" style="margin-top:0.9rem;margin-bottom:0"><code>git clone https://github.com/timwuhaotian/stats-lite.git
+cd stats-lite
+cargo run --release</code></div>
+                </div>
+                <div class="feature-card reveal reveal-delay-3">
+                    <h3>Bundle a StatsLite.app</h3>
+                    <p>For a <code>StatsLite.app</code> with its Info.plist, installed as a login item candidate:</p>
+                    <div class="code-block" style="margin-top:0.9rem;margin-bottom:0"><code>scripts/bundle.sh release   <span class="comment"># → target/release/StatsLite.app</span>
+ditto target/release/StatsLite.app /Applications/StatsLite.app</code></div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider" aria-hidden="true">
+
+        <section class="section" id="links">
+            <div class="section-header reveal">
+                <div class="section-label">Links</div>
+                <h2>Dig deeper.</h2>
+            </div>
+            <div class="link-cards reveal">
+                <a class="link-card" href="https://github.com/timwuhaotian/stats-lite" target="_blank" rel="noopener">
+                    <strong>GitHub repository &rarr;</strong>
+                    <span>Source, issues and the full README.</span>
+                </a>
+                <a class="link-card" href="https://github.com/timwuhaotian/stats-lite/raw/main/releases/StatsLite-arm64.dmg" target="_blank" rel="noopener">
+                    <strong>Download StatsLite-arm64.dmg &rarr;</strong>
+                    <span>Raw DMG from the repo, about 647 KB.</span>
+                </a>
+                <a class="link-card" href="https://github.com/timwuhaotian/stats-lite/tree/main/releases" target="_blank" rel="noopener">
+                    <strong>releases folder &rarr;</strong>
+                    <span>The DMG, its sha256 and latest.toml.</span>
+                </a>
+                <a class="link-card" href="https://github.com/timwuhaotian/stats-lite/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">
+                    <strong>CONTRIBUTING.md &rarr;</strong>
+                    <span>Bug reports and fixes are welcome.</span>
+                </a>
+                <a class="link-card" href="https://github.com/timwuhaotian/stats-lite/actions/workflows/ci.yml" target="_blank" rel="noopener">
+                    <strong>CI workflow &rarr;</strong>
+                    <span>Builds and checks on every push.</span>
+                </a>
+                <a class="link-card" href="https://timwuhaotian.dev" target="_blank" rel="noopener">
+                    <strong>Personal site &rarr;</strong>
+                    <span>timwuhaotian.dev — work and writing.</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2026 Haotian Wu &mdash; open source at <a href="https://github.com/timwuhaotian" target="_blank" rel="noopener">github.com/timwuhaotian</a> &middot; <a href="https://timwuhaotian.dev" target="_blank" rel="noopener">timwuhaotian.dev</a>
+    </footer>
+
+    <script src="/assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="killi — a fast, tiny open-source AI coding agent for your terminal, written in Rust. One 7 MB binary, ~18 MB RAM, 70–90% prompt-cache hits. Works with any OpenAI-, Anthropic- or Responses-compatible LLM; MCP, subagents, plan mode, skills, hooks, AGENTS.md.">
+    <title>killi — a 7 MB AI coding agent for your terminal, in Rust</title>
+    <link rel="canonical" href="https://timwuhaotian.github.io/killi/">
+
+    <meta property="og:title" content="killi — a 7 MB AI coding agent for your terminal, in Rust">
+    <meta property="og:description" content="A fast, tiny AI coding agent for the terminal, written in Rust. One 7 MB native binary, ~18 MB RAM, 70–90% prompt-cache hits, and any OpenAI-, Anthropic- or Responses-compatible LLM.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://timwuhaotian.github.io/killi/">
+    <meta property="og:site_name" content="timwuhaotian open source">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="killi — a 7 MB AI coding agent for your terminal, in Rust">
+    <meta name="twitter:description" content="A fast, tiny AI coding agent for the terminal, written in Rust. One 7 MB native binary, ~18 MB RAM, 70–90% prompt-cache hits.">
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <script src="/theme.js"></script>
+    <link rel="stylesheet" href="/assets/style.css">
+    <style>:root { --accent: var(--amber-700); }</style>
+</head>
+<body>
+
+    <nav>
+        <a href="/" class="nav-logo">HT<span>.</span>WU</a>
+        <div class="nav-links">
+            <a href="/#projects">Projects</a>
+            <a href="https://github.com/timwuhaotian" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://timwuhaotian.dev" target="_blank" rel="noopener">timwuhaotian.dev</a>
+        </div>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"></button>
+        <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
+        <a href="/#projects">Projects</a>
+        <a href="https://github.com/timwuhaotian" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://timwuhaotian.dev" target="_blank" rel="noopener">timwuhaotian.dev</a>
+    </div>
+
+    <main>
+        <section class="hero" id="hero">
+            <div class="hero-visual">
+                <div class="hero-graphic">
+                    <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <rect class="hg-frame" x="30" y="46" width="340" height="308" rx="16"/>
+                        <path class="hg-bar" d="M30 62a16 16 0 0 1 16-16h308a16 16 0 0 1 16 16v24H30z"/>
+                        <line class="hg-rule" x1="30" y1="86" x2="370" y2="86"/>
+                        <circle class="hg-dot" cx="52" cy="66" r="4"/>
+                        <circle class="hg-dot" cx="66" cy="66" r="4"/>
+                        <circle class="hg-dot" cx="80" cy="66" r="4"/>
+
+                        <rect class="hg-invert" x="46" y="104" width="308" height="220" rx="10"/>
+                        <text class="hg-mono hg-invert-ink" x="66" y="140" style="font-size:20px">&gt;_</text>
+                        <rect class="hg-muted" x="66" y="164" width="200" height="6" rx="3"/>
+                        <rect class="hg-muted" x="66" y="182" width="160" height="6" rx="3"/>
+                        <rect class="hg-muted" x="66" y="200" width="220" height="6" rx="3"/>
+                        <rect class="hg-amber" x="66" y="218" width="120" height="6" rx="3"/>
+                        <rect class="hg-blue" x="66" y="272" width="64" height="18" rx="9"/>
+                        <text class="hg-mono hg-invert-ink" x="98" y="285" text-anchor="middle" style="font-size:11px">83%</text>
+                        <circle class="hg-muted" cx="150" cy="281" r="3"/>
+                        <circle class="hg-muted" cx="162" cy="281" r="3"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="hero-content">
+                <a class="back-link" href="/#projects">&larr; All projects</a>
+                <div class="hero-eyebrow">AI coding agent · Terminal CLI</div>
+                <h1>killi</h1>
+                <div class="hero-title">A tiny AI coding agent that fits in your terminal.</div>
+                <p class="hero-tagline">killi is a fast, tiny AI coding agent for your terminal, written in Rust: one small native binary, no runtime. Like Claude Code, Codex CLI, opencode or Kimi Code it reads your code, runs commands and edits files &mdash; but it works with any OpenAI-compatible, Anthropic-compatible or OpenAI Responses LLM. It is built around one idea: send the model as little as possible, the same way every time, so the provider's prompt cache keeps hitting. <strong>(Status: early. Apple silicon Macs only.)</strong></p>
+                <div class="hero-badges">
+                    <span class="chip"><span class="dot"></span>★ 46 stars</span>
+                    <span class="chip">MIT</span>
+                    <span class="chip">macOS · Apple silicon</span>
+                    <span class="chip">Rust</span>
+                </div>
+                <div class="hero-ctas">
+                    <a href="https://github.com/timwuhaotian/killi/releases/download/v0.6.29/killi-arm64" target="_blank" rel="noopener" class="btn btn-primary">Download 0.6.29 &rarr;</a>
+                    <a href="https://github.com/timwuhaotian/killi" target="_blank" rel="noopener" class="btn btn-secondary">GitHub repository &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider" aria-hidden="true">
+
+        <section class="section" id="highlights">
+            <div class="section-header reveal">
+                <div class="section-label">Highlights</div>
+                <h2>Seven megabytes, and it still does the job.</h2>
+                <p>One native Rust binary with no runtime to install, a system prompt and tool list that never move so the prompt cache keeps hitting, and the agent features you actually use: MCP, subagents, swarms, plan mode, skills, hooks and <code>AGENTS.md</code>.</p>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card reveal reveal-delay-1">
+                    <h3>Small and quick</h3>
+                    <p>One 7 MB binary with no runtime to install. It starts in under 10 ms and uses about 18 MB of memory running a prompt &mdash; where Kimi Code uses 408 MB, Claude Code 318 MB and opencode 2 332 MB.</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-2">
+                    <h3>Few tokens</h3>
+                    <p>The system prompt and every tool together come to about 2,600 tokens, plus your <code>AGENTS.md</code> files and about 4 tokens per installed skill. In the capability tests killi passed every task Kimi Code passed, on the same model, with 5.6&times; fewer input tokens.</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-3">
+                    <h3>Cache-friendly by design</h3>
+                    <p>The system prompt and the tool list are fixed for the whole session, and history is only appended to, never rewritten. Plan mode, subagents and resumed sessions reuse the same cached prefix; 70&ndash;90% of input tokens come from the cache.</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-1">
+                    <h3>Stays out of the way</h3>
+                    <p>The conversation prints into your terminal's own scrollback; only a small area at the bottom redraws. Type <code>/</code> for a menu of commands and skills that narrows as you type, type while the agent works and your message reaches it at its next step. Esc interrupts &mdash; and nothing it started keeps running.</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-2">
+                    <h3>Plan mode, subagents, swarms</h3>
+                    <p>Shift+Tab blocks edits and runs only read-only commands until you approve the plan. Subagents run in parallel on the same cached prompt; swarms run one subagent per item of a template, up to 128, shown as one live panel. Background tasks keep servers and slow builds running.</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-3">
+                    <h3>Any compatible LLM</h3>
+                    <p>OpenAI-compatible, Anthropic-compatible or OpenAI Responses, plus MCP servers, skills, Claude Code-style hooks and <code>AGENTS.md</code>. <code>killi login</code> signs in with ChatGPT, OpenCode Go, Muse Code or Command Code. It is the sibling of the Kil terminal and the Kiled editor.</p>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider" aria-hidden="true">
+
+        <section class="section" id="get-it">
+            <div class="section-header reveal">
+                <div class="section-label">Get it</div>
+                <h2>One command, ~7 MB.</h2>
+                <p>The installer checks the binary's SHA-256 against <code>releases/latest.toml</code> and drops <code>killi</code> into <code>~/.local/bin</code>. Apple silicon Macs only.</p>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card reveal reveal-delay-1">
+                    <h3>Install</h3>
+                    <p>The fastest way in:</p>
+                    <div class="code-block" style="margin-top:0.9rem;margin-bottom:0"><code>curl -fsSL https://raw.githubusercontent.com/timwuhaotian/killi/main/install.sh | sh</code></div>
+                </div>
+                <div class="feature-card reveal reveal-delay-2">
+                    <h3>What you get</h3>
+                    <ul class="fact-list" style="margin-top:0.9rem">
+                        <li><strong>macOS · Apple silicon</strong> — the only supported platform for now</li>
+                        <li><strong>killi-arm64</strong> — 7.2 MB native binary, no runtime</li>
+                        <li><strong>~/.local/bin</strong> — where the installer puts it</li>
+                        <li><strong>SHA-256 checked</strong> — against releases/latest.toml</li>
+                    </ul>
+                </div>
+                <div class="feature-card reveal reveal-delay-3">
+                    <h3>Update or build</h3>
+                    <p>Later releases install in place, checksum and all:</p>
+                    <div class="code-block" style="margin-top:0.9rem;margin-bottom:0"><code>killi update</code></div>
+                    <p style="margin-top:0.9rem">From source, with Rust 1.94 or later:</p>
+                    <div class="code-block" style="margin-top:0.9rem;margin-bottom:0"><code>cargo install --path crates/killi</code></div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider" aria-hidden="true">
+
+        <section class="section" id="links">
+            <div class="section-header reveal">
+                <div class="section-label">Links</div>
+                <h2>Dig deeper.</h2>
+            </div>
+            <div class="link-cards reveal">
+                <a class="link-card" href="https://github.com/timwuhaotian/killi" target="_blank" rel="noopener">
+                    <strong>GitHub repository &rarr;</strong>
+                    <span>Source, issues, benchmarks and the full README.</span>
+                </a>
+                <a class="link-card" href="https://github.com/timwuhaotian/killi/releases" target="_blank" rel="noopener">
+                    <strong>Releases &rarr;</strong>
+                    <span>v0.6.29 — killi-arm64, 7.2 MB.</span>
+                </a>
+                <a class="link-card" href="https://github.com/timwuhaotian/kil" target="_blank" rel="noopener">
+                    <strong>Kil &rarr;</strong>
+                    <span>The sibling terminal killi was built for.</span>
+                </a>
+                <a class="link-card" href="https://github.com/timwuhaotian/kiled" target="_blank" rel="noopener">
+                    <strong>Kiled &rarr;</strong>
+                    <span>The sibling editor, same family.</span>
+                </a>
+                <a class="link-card" href="/kil/" >
+                    <strong>Kil, on this site &rarr;</strong>
+                    <span>The macOS terminal project page.</span>
+                </a>
+                <a class="link-card" href="https://timwuhaotian.dev" target="_blank" rel="noopener">
+                    <strong>Personal site &rarr;</strong>
+                    <span>timwuhaotian.dev — work and writing.</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2026 Haotian Wu &mdash; open source at <a href="https://github.com/timwuhaotian" target="_blank" rel="noopener">github.com/timwuhaotian</a> &middot; <a href="https://timwuhaotian.dev" target="_blank" rel="noopener">timwuhaotian.dev</a>
+    </footer>
+
+    <script src="/assets/app.js"></script>
+</body>
+</html>

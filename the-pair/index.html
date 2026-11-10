@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Pair — open-source AI pair programming for desktop. A Mentor and an Executor agent cross-check each other's code to catch AI hallucinations. macOS, Windows, Linux.">
+    <title>The Pair — AI pair programming, two agents cross-checking</title>
+    <link rel="canonical" href="https://timwuhaotian.github.io/the-pair/">
+
+    <meta property="og:title" content="The Pair — AI pair programming, two agents cross-checking">
+    <meta property="og:description" content="A read-only Mentor plans and reviews while an Executor writes and runs — cross-validated AI code, free and open source.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://timwuhaotian.github.io/the-pair/">
+    <meta property="og:site_name" content="timwuhaotian open source">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Pair — AI pair programming, two agents cross-checking">
+    <meta name="twitter:description" content="A read-only Mentor plans and reviews while an Executor writes and runs — cross-validated AI code, free and open source.">
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <script src="/theme.js"></script>
+    <link rel="stylesheet" href="/assets/style.css">
+    <style>:root { --accent: var(--blue-700); }</style>
+</head>
+<body>
+
+    <nav>
+        <a href="/" class="nav-logo">HT<span>.</span>WU</a>
+        <div class="nav-links">
+            <a href="/#projects">Projects</a>
+            <a href="https://github.com/timwuhaotian" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://timwuhaotian.dev" target="_blank" rel="noopener">timwuhaotian.dev</a>
+        </div>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"></button>
+        <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
+        <a href="/#projects">Projects</a>
+        <a href="https://github.com/timwuhaotian" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://timwuhaotian.dev" target="_blank" rel="noopener">timwuhaotian.dev</a>
+    </div>
+
+    <main>
+        <section class="hero" id="hero">
+            <div class="hero-visual">
+                <div class="hero-graphic">
+                    <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <rect class="hg-frame" x="30" y="46" width="340" height="308" rx="16"/>
+                        <path class="hg-bar" d="M30 62a16 16 0 0 1 16-16h308a16 16 0 0 1 16 16v24H30z"/>
+                        <line class="hg-rule" x1="30" y1="86" x2="370" y2="86"/>
+                        <circle class="hg-dot" cx="52" cy="66" r="4"/>
+                        <circle class="hg-dot" cx="66" cy="66" r="4"/>
+                        <circle class="hg-dot" cx="80" cy="66" r="4"/>
+
+                        <rect class="hg-blue" x="46" y="112" width="110" height="110" rx="12"/>
+                        <rect class="hg-text" x="244" y="112" width="110" height="110" rx="12"/>
+                        <text class="hg-mono hg-ink" x="101" y="182" text-anchor="middle" style="font-size:40px;font-weight:600">M</text>
+                        <text class="hg-mono hg-ink" x="299" y="182" text-anchor="middle" style="font-size:40px;font-weight:600">E</text>
+
+                        <line class="hg-stroke-muted" x1="161" y1="167" x2="199" y2="167"/>
+                        <path class="hg-muted" d="M161 167l7-3.5v7z"/>
+                        <path class="hg-muted" d="M199 167l-7-3.5v7z"/>
+
+                        <rect class="hg-panel-2" x="46" y="246" width="308" height="72" rx="10"/>
+                        <rect class="hg-muted" x="66" y="268" width="180" height="6" rx="3"/>
+                        <rect class="hg-muted" x="66" y="286" width="240" height="6" rx="3"/>
+                        <rect class="hg-muted" x="66" y="304" width="140" height="6" rx="3"/>
+                        <circle class="hg-blue" cx="316" cy="282" r="16"/>
+                        <path class="hg-stroke-ink" d="M308.5 282.5l5.5 5.5 11-11" stroke-width="2.5"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="hero-content">
+                <a class="back-link" href="/#projects">&larr; All projects</a>
+                <div class="hero-eyebrow">AI pair programming · Desktop app</div>
+                <h1>The Pair</h1>
+                <div class="hero-title">Two AI agents cross-check each other's code.</div>
+                <p class="hero-tagline">A free, open-source desktop app that runs a read-only <strong>Mentor</strong> which plans and reviews, and an <strong>Executor</strong> which writes code and runs commands — so AI hallucinations get caught before they reach your codebase. Grab a coffee; come back to reviewed, cross-validated work. <strong>(Yes, The Pair was built by The Pair.)</strong></p>
+                <div class="hero-badges">
+                    <span class="chip">★ 386 stars</span>
+                    <span class="chip">Apache-2.0</span>
+                    <span class="chip">macOS · Windows · Linux</span>
+                    <span class="chip">Rust · Tauri 2 · React 19</span>
+                </div>
+                <div class="hero-ctas">
+                    <a href="https://github.com/timwuhaotian/the-pair/releases" target="_blank" rel="noopener" class="btn btn-primary">Download &rarr;</a>
+                    <a href="https://apps.timwuhaotian.dev/" target="_blank" rel="noopener" class="btn btn-secondary">apps.timwuhaotian.dev &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider" aria-hidden="true">
+
+        <section class="section" id="highlights">
+            <div class="section-header reveal">
+                <div class="section-label">Highlights</div>
+                <h2>One agent writes. Another one checks.</h2>
+                <p>A single model writing and reviewing its own code can miss its own mistakes. The Pair's Mentor independently reviews everything the Executor produces.</p>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card reveal reveal-delay-1">
+                    <h3>Dual-agent architecture</h3>
+                    <p>Separation of planning and execution: the Mentor plans, reviews and validates (read-only); the Executor writes code and runs commands.</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-2">
+                    <h3>Ten provider CLIs</h3>
+                    <p>opencode, Claude Code, Codex, Antigravity (Gemini), Kimi Code, Pi, Kiro, Aider, Grok Build and Muse Code — plus local models via Ollama. Mix and match freely.</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-3">
+                    <h3>Unified pair console</h3>
+                    <p>Conversation, timeline, terminal events and activity in one scrollable feed, with live status, stall detection and per-agent CPU &amp; memory.</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-1">
+                    <h3>Git change tracking</h3>
+                    <p>Modified, added and deleted files with a click-through unified diff viewer. Pairs run in your directory or in an isolated git worktree.</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-2">
+                    <h3>Full automation mode</h3>
+                    <p>Agents work autonomously with workspace-scoped permissions; an optional iteration budget pauses the run into human review when it is reached.</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-3">
+                    <h3>Local orchestration</h3>
+                    <p>The app and agent coordination run locally on your machine; only model calls go to your selected provider — or nowhere, with Ollama.</p>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider" aria-hidden="true">
+
+        <section class="section" id="get-it">
+            <div class="section-header reveal">
+                <div class="section-label">Get it</div>
+                <h2>Install in a minute.</h2>
+                <p>Download the desktop app for your platform, or install the terminal edition. You need at least one AI provider CLI installed and signed in.</p>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card reveal reveal-delay-1">
+                    <h3>Desktop app</h3>
+                    <p>Grab the latest build from GitHub Releases:</p>
+                    <ul class="fact-list" style="margin-top:0.9rem">
+                        <li><strong>macOS</strong> — the-pair-{version}.zip</li>
+                        <li><strong>Windows</strong> — the-pair-{version}-setup.exe</li>
+                        <li><strong>Linux</strong> — the-pair-{version}.AppImage.tar.gz</li>
+                    </ul>
+                </div>
+                <div class="feature-card reveal reveal-delay-2">
+                    <h3>Terminal edition</h3>
+                    <p>Prefer the terminal? Pair Code is the CLI edition of The Pair, on npm:</p>
+                    <div class="code-block" style="margin-top:0.9rem;margin-bottom:0"><code>npm install -g pair-code</code></div>
+                </div>
+                <div class="feature-card reveal reveal-delay-3">
+                    <h3>From source</h3>
+                    <p>Tauri 2 + Rust + React 19 + TypeScript. Node.js 22.22+ and rustup required:</p>
+                    <div class="code-block" style="margin-top:0.9rem;margin-bottom:0"><code>git clone https://github.com/timwuhaotian/the-pair.git
+cd the-pair
+npm install
+npm run build:mac <span class="comment"># or build:win / build:linux</span></code></div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider" aria-hidden="true">
+
+        <section class="section" id="links">
+            <div class="section-header reveal">
+                <div class="section-label">Links</div>
+                <h2>Dig deeper.</h2>
+            </div>
+            <div class="link-cards reveal">
+                <a class="link-card" href="https://github.com/timwuhaotian/the-pair" target="_blank" rel="noopener">
+                    <strong>GitHub repository &rarr;</strong>
+                    <span>Source, issues and the full README.</span>
+                </a>
+                <a class="link-card" href="https://github.com/timwuhaotian/the-pair/releases" target="_blank" rel="noopener">
+                    <strong>Releases &rarr;</strong>
+                    <span>Latest builds for macOS, Windows and Linux.</span>
+                </a>
+                <a class="link-card" href="https://apps.timwuhaotian.dev/" target="_blank" rel="noopener">
+                    <strong>Product website &rarr;</strong>
+                    <span>apps.timwuhaotian.dev</span>
+                </a>
+                <a class="link-card" href="https://github.com/timwuhaotian/pair-code" target="_blank" rel="noopener">
+                    <strong>Pair Code CLI &rarr;</strong>
+                    <span>The terminal edition of The Pair.</span>
+                </a>
+                <a class="link-card" href="https://www.npmjs.com/package/pair-code" target="_blank" rel="noopener">
+                    <strong>npm package &rarr;</strong>
+                    <span>npm install -g pair-code</span>
+                </a>
+                <a class="link-card" href="https://timwuhaotian.dev" target="_blank" rel="noopener">
+                    <strong>Personal site &rarr;</strong>
+                    <span>timwuhaotian.dev — work and writing.</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2026 Haotian Wu &mdash; open source at <a href="https://github.com/timwuhaotian" target="_blank" rel="noopener">github.com/timwuhaotian</a> &middot; <a href="https://timwuhaotian.dev" target="_blank" rel="noopener">timwuhaotian.dev</a>
+    </footer>
+
+    <script src="/assets/app.js"></script>
+</body>
+</html>

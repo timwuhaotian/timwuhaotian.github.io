@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="minimax-skills — open-source agent skills for the MiniMax Token Plan: text, speech, music, cover, lyrics, image, image understanding, web search and video generation, installed with one npx command. MIT licensed.">
+    <title>minimax-skills — every MiniMax modality, one npx command</title>
+    <link rel="canonical" href="https://timwuhaotian.github.io/minimax-skills/">
+
+    <meta property="og:title" content="minimax-skills — every MiniMax modality, one npx command">
+    <meta property="og:description" content="Agent skills for the MiniMax Token Plan: 文本生成 / text, 语音合成 / speech, 音乐生成 / music, 图像生成 / image, 图片理解 / vision, 网络搜索 / search and 视频生成 / video. One npx install, automatic API calls.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://timwuhaotian.github.io/minimax-skills/">
+    <meta property="og:site_name" content="timwuhaotian open source">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="minimax-skills — every MiniMax modality, one npx command">
+    <meta name="twitter:description" content="Agent skills for the MiniMax Token Plan: text, speech, music, cover, lyrics, image, image understanding, web search and video — installed with npx, MIT licensed.">
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <script src="/theme.js"></script>
+    <link rel="stylesheet" href="/assets/style.css">
+    <style>:root { --accent: var(--amber-700); }</style>
+</head>
+<body>
+
+    <nav>
+        <a href="/" class="nav-logo">HT<span>.</span>WU</a>
+        <div class="nav-links">
+            <a href="/#projects">Projects</a>
+            <a href="https://github.com/timwuhaotian" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://timwuhaotian.dev" target="_blank" rel="noopener">timwuhaotian.dev</a>
+        </div>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"></button>
+        <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
+        <a href="/#projects">Projects</a>
+        <a href="https://github.com/timwuhaotian" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://timwuhaotian.dev" target="_blank" rel="noopener">timwuhaotian.dev</a>
+    </div>
+
+    <main>
+        <section class="hero" id="hero">
+            <div class="hero-visual">
+                <div class="hero-graphic">
+                    <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <rect class="hg-frame" x="30" y="46" width="340" height="308" rx="16"/>
+                        <path class="hg-bar" d="M30 62a16 16 0 0 1 16-16h308a16 16 0 0 1 16 16v24H30z"/>
+                        <line class="hg-rule" x1="30" y1="86" x2="370" y2="86"/>
+                        <circle class="hg-dot" cx="52" cy="66" r="4"/>
+                        <circle class="hg-dot" cx="66" cy="66" r="4"/>
+                        <circle class="hg-dot" cx="80" cy="66" r="4"/>
+
+                        <rect class="hg-blue" x="46" y="104" width="92" height="56" rx="10"/>
+                        <rect class="hg-ink" x="70" y="122" width="44" height="3" rx="1.5"/>
+                        <rect class="hg-ink" x="70" y="130" width="30" height="3" rx="1.5" opacity="0.7"/>
+                        <rect class="hg-ink" x="70" y="138" width="38" height="3" rx="1.5" opacity="0.45"/>
+
+                        <rect class="hg-slate" x="150" y="104" width="92" height="56" rx="10"/>
+                        <path class="hg-dark" d="M205 115V141c0 4.4-4 8-9 8s-9-3.6-9-8 4-8 9-8c2.1 0 4.1.6 5.6 1.7V115z"/>
+
+                        <rect class="hg-amber" x="254" y="104" width="92" height="56" rx="10"/>
+                        <rect class="hg-stroke-ink" x="284" y="118" width="32" height="28" rx="5"/>
+                        <circle class="hg-ink" cx="291" cy="125" r="2.5"/>
+                        <path class="hg-ink" d="M287 143l6-8 5 6 4-4 6 8z"/>
+
+                        <rect class="hg-blue" x="46" y="172" width="92" height="56" rx="10"/>
+                        <path class="hg-ink" d="M83 190l18 10-18 10z"/>
+
+                        <rect class="hg-slate" x="150" y="172" width="92" height="56" rx="10"/>
+                        <circle class="hg-stroke-dark" cx="193" cy="197" r="10"/>
+                        <line class="hg-stroke-dark" x1="200.5" y1="204.5" x2="209" y2="213"/>
+
+                        <rect class="hg-amber" x="254" y="172" width="92" height="56" rx="10"/>
+                        <rect class="hg-ink" x="290" y="190" width="4" height="20" rx="2"/>
+                        <rect class="hg-ink" x="298" y="184" width="4" height="32" rx="2"/>
+                        <rect class="hg-ink" x="306" y="194" width="4" height="12" rx="2"/>
+
+                        <rect class="hg-blue" x="46" y="240" width="92" height="56" rx="10"/>
+                        <path class="hg-stroke-ink" d="M74 268c3-10 6-10 9 0s6 10 9 0 6-10 9 0 6 10 9 0"/>
+
+                        <rect class="hg-slate" x="150" y="240" width="92" height="56" rx="10"/>
+                        <circle class="hg-stroke-dark" cx="196" cy="268" r="13"/>
+                        <path class="hg-dark" d="M192 261.5l10 6.5-10 6.5z"/>
+
+                        <rect class="hg-amber" x="254" y="240" width="92" height="56" rx="10"/>
+                        <path class="hg-ink" d="M300 256c2 6 6 10 12 12-6 2-10 6-12 12-2-6-6-10-12-12 6-2 10-6 12-12z"/>
+                        <path class="hg-ink" d="M318 250c1.2 3.8 3.2 5.8 7 7-3.8 1.2-5.8 3.2-7 7-1.2-3.8-3.2-5.8-7-7 3.8-1.2 5.8-3.2 7-7z"/>
+
+                        <rect class="hg-invert" x="46" y="284" width="308" height="40" rx="10"/>
+                        <text class="hg-mono hg-invert-ink" x="62" y="309" style="font-size:11px;font-weight:400">npx skills add timwuhaotian/minimax-skills</text>
+                    </svg>
+                </div>
+            </div>
+            <div class="hero-content">
+                <a class="back-link" href="/#projects">&larr; All projects</a>
+                <div class="hero-eyebrow">Agent skills · MiniMax Token Plan</div>
+                <h1>minimax-skills</h1>
+                <div class="hero-title">Every MiniMax modality, one npx command.</div>
+                <p class="hero-tagline">An open-source collection of agent skills that puts the whole <strong>MiniMax Token Plan</strong> behind a single command: 文本生成 / text, 语音合成 / speech, 音乐生成 / music, 音乐翻唱 / cover, 歌词生成 / lyrics, 图像生成 / image, 图片理解 / image understanding, 网络搜索 / web search and 视频生成 / video. Install it with <strong>npx</strong>, then describe what you want in Claude Code, Cursor, Windsurf or opencode — the matching API is called automatically and the result is saved to <strong>~/minimax-output/</strong>.</p>
+                <div class="hero-badges">
+                    <span class="chip">★ 1 star</span>
+                    <span class="chip">MIT</span>
+                    <span class="chip">macOS · Linux · shell</span>
+                    <span class="chip">Bash · Agent skills</span>
+                </div>
+                <div class="hero-ctas">
+                    <a href="https://www.npmjs.com/package/skills" target="_blank" rel="noopener" class="btn btn-primary">Install with npx &rarr;</a>
+                    <a href="https://github.com/timwuhaotian/minimax-skills" target="_blank" rel="noopener" class="btn btn-secondary">GitHub repository &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider" aria-hidden="true">
+
+        <section class="section" id="highlights">
+            <div class="section-header reveal">
+                <div class="section-label">Highlights</div>
+                <h2>Ask in plain language. The right API answers.</h2>
+                <p>The toolkit is one bash script plus a SKILL.md your AI coding tool can trigger on its own — no manual commands, no per-modality setup.</p>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card reveal reveal-delay-1">
+                    <h3>One command, every modality</h3>
+                    <p><code>npx skills add timwuhaotian/minimax-skills</code> installs the skills; text, speech, music, cover, lyrics, image, vision, search and video all become available at once.</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-2">
+                    <h3>Automatic intent routing</h3>
+                    <p>"生成图片", "合成语音", "TTS", "写首歌", "cover", "联网搜索" or "做视频" trigger <code>minimax image</code>, <code>speech</code>, <code>music</code>, <code>cover</code>, <code>search</code>, <code>video</code> and friends — the skill picks the command for you.</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-3">
+                    <h3>API key auto-discovery</h3>
+                    <p>The key is found in <code>MINIMAX_API_KEY</code>, the opencode config <code>~/.config/opencode/opencode.json</code>, Claude Code's <code>~/.claude/settings.json</code>, your <code>~/.zshrc</code> / <code>~/.bashrc</code>, or a <code>.env</code> file. If nothing matches, it asks and offers to save it.</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-1">
+                    <h3>Quota-aware</h3>
+                    <p>Every capability runs on the Token Plan daily quota. <code>minimax usage</code> writes usage records to <code>usage.json</code>, and quotas reset daily — so you can see what is left before spending it.</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-2">
+                    <h3>Output lands locally</h3>
+                    <p>Everything is written under <code>~/minimax-output/</code>: <code>text/</code>, <code>speech/</code>, <code>music/</code>, <code>image/</code>, <code>video/</code> plus <code>usage.json</code>. Override the folder with <code>MINIMAX_OUTPUT_DIR</code>.</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-3">
+                    <h3>Async video, handled</h3>
+                    <p>视频生成 is asynchronous: <code>minimax video</code> creates the task, <code>minimax video-status</code> polls it and <code>minimax video-download</code> fetches the file — result URLs live 24 hours, so download them.</p>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider" aria-hidden="true">
+
+        <section class="section" id="get-it">
+            <div class="section-header reveal">
+                <div class="section-label">Get it</div>
+                <h2>Install once. Use everything.</h2>
+                <p>A Unix shell (bash or zsh) and npx are all you need — the toolkit itself is a single shell script that calls the MiniMax APIs directly.</p>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card reveal reveal-delay-1">
+                    <h3>One-command install</h3>
+                    <p>Add the skills to your AI coding tool — Claude Code, Cursor, Windsurf, opencode:</p>
+                    <div class="code-block" style="margin-top:0.9rem;margin-bottom:0"><code>npx skills add timwuhaotian/minimax-skills</code></div>
+                    <p style="margin-top:0.9rem">Then just say it: <em>生成一张赛博朋克风格的城市夜景图</em> and the image API is called.</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-2">
+                    <h3>Daily quotas</h3>
+                    <p>What the Token Plan gives you per day:</p>
+                    <ul class="fact-list" style="margin-top:0.9rem">
+                        <li><strong>📝 文本生成 / Text</strong> — 1,500</li>
+                        <li><strong>🎙️ 语音合成 / Speech</strong> — 9,000 · 300+ voices, 40+ languages</li>
+                        <li><strong>🎵 音乐生成 / Music</strong> — 100</li>
+                        <li><strong>🎤 音乐翻唱 / Cover</strong> — 100</li>
+                        <li><strong>📝 歌词生成 / Lyrics</strong> — 100</li>
+                        <li><strong>🖼️ 图像生成 / Image</strong> — 100</li>
+                        <li><strong>👁️ 图片理解 / Image understanding</strong> — 150</li>
+                        <li><strong>🔍 网络搜索 / Web search</strong> — 150</li>
+                        <li><strong>🎬 视频生成 / Video</strong> — 异步 / asynchronous</li>
+                    </ul>
+                </div>
+                <div class="feature-card reveal reveal-delay-3">
+                    <h3>Manual install</h3>
+                    <p>Prefer to wire it up yourself? The key is optional — the script finds it on its own:</p>
+                    <div class="code-block" style="margin-top:0.9rem;margin-bottom:0"><code><span class="comment"># 1. API Key (optional, auto-discovered)</span>
+export MINIMAX_API_KEY="sk-cp-xxx"
+
+<span class="comment"># 2. Put the script on your PATH</span>
+ln -sf ~/.agents/skills/minimax-toolkit/scripts/minimax.sh ~/bin/minimax
+echo 'export PATH="$HOME/bin:$PATH"' &gt;&gt; ~/.zshrc
+source ~/.zshrc
+
+<span class="comment"># 3. Test</span>
+minimax help</code></div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider" aria-hidden="true">
+
+        <section class="section" id="links">
+            <div class="section-header reveal">
+                <div class="section-label">Links</div>
+                <h2>Dig deeper.</h2>
+            </div>
+            <div class="link-cards reveal">
+                <a class="link-card" href="https://github.com/timwuhaotian/minimax-skills" target="_blank" rel="noopener">
+                    <strong>GitHub repository &rarr;</strong>
+                    <span>Source, SKILL.md and the minimax.sh script.</span>
+                </a>
+                <a class="link-card" href="https://www.npmjs.com/package/skills" target="_blank" rel="noopener">
+                    <strong>skills CLI on npm &rarr;</strong>
+                    <span>npx skills add timwuhaotian/minimax-skills</span>
+                </a>
+                <a class="link-card" href="https://platform.minimaxi.com/" target="_blank" rel="noopener">
+                    <strong>MiniMax platform &rarr;</strong>
+                    <span>API reference and system voice IDs used by the toolkit.</span>
+                </a>
+                <a class="link-card" href="https://github.com/timwuhaotian/minimax-skills/issues" target="_blank" rel="noopener">
+                    <strong>Issues &rarr;</strong>
+                    <span>Bug reports and capability requests.</span>
+                </a>
+                <a class="link-card" href="/#projects">
+                    <strong>All projects &rarr;</strong>
+                    <span>The rest of the open-source hub.</span>
+                </a>
+                <a class="link-card" href="https://timwuhaotian.dev" target="_blank" rel="noopener">
+                    <strong>Personal site &rarr;</strong>
+                    <span>timwuhaotian.dev — work and writing.</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2026 Haotian Wu &mdash; open source at <a href="https://github.com/timwuhaotian" target="_blank" rel="noopener">github.com/timwuhaotian</a> &middot; <a href="https://timwuhaotian.dev" target="_blank" rel="noopener">timwuhaotian.dev</a>
+    </footer>
+
+    <script src="/assets/app.js"></script>
+</body>
+</html>

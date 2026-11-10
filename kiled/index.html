@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kiled — a native macOS code editor in Rust and GPUI, Kil's sibling. VS Code's keys, tree-sitter highlighting, LSP diagnostics, 4.8 MB download and 13.5 MB installed. MIT, Apple silicon, macOS 14+.">
+    <title>Kiled — a native macOS code editor in Rust, 13.5 MB installed</title>
+    <link rel="canonical" href="https://timwuhaotian.github.io/kiled/">
+
+    <meta property="og:title" content="Kiled — a native macOS code editor in Rust, 13.5 MB installed">
+    <meta property="og:description" content="Kil's sibling: a native macOS code editor in Rust and GPUI with VS Code's keys, tree-sitter highlighting and language servers. Opens in a blink, uses no CPU while you think.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://timwuhaotian.github.io/kiled/">
+    <meta property="og:site_name" content="timwuhaotian open source">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Kiled — a native macOS code editor in Rust, 13.5 MB installed">
+    <meta name="twitter:description" content="Kil's sibling: a native macOS code editor in Rust and GPUI with VS Code's keys, tree-sitter highlighting and language servers. Opens in a blink, uses no CPU while you think.">
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <script src="/theme.js"></script>
+    <link rel="stylesheet" href="/assets/style.css">
+    <style>:root { --accent: var(--blue-700); }</style>
+</head>
+<body>
+
+    <nav>
+        <a href="/" class="nav-logo">HT<span>.</span>WU</a>
+        <div class="nav-links">
+            <a href="/#projects">Projects</a>
+            <a href="https://github.com/timwuhaotian" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://timwuhaotian.dev" target="_blank" rel="noopener">timwuhaotian.dev</a>
+        </div>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"></button>
+        <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
+        <a href="/#projects">Projects</a>
+        <a href="https://github.com/timwuhaotian" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://timwuhaotian.dev" target="_blank" rel="noopener">timwuhaotian.dev</a>
+    </div>
+
+    <main>
+        <section class="hero" id="hero">
+            <div class="hero-visual">
+                <div class="hero-graphic">
+                    <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <rect class="hg-frame" x="30" y="46" width="340" height="308" rx="16"/>
+                        <path class="hg-bar" d="M30 62a16 16 0 0 1 16-16h308a16 16 0 0 1 16 16v24H30z"/>
+                        <line class="hg-rule" x1="30" y1="86" x2="370" y2="86"/>
+                        <circle class="hg-dot" cx="52" cy="66" r="4"/>
+                        <circle class="hg-dot" cx="66" cy="66" r="4"/>
+                        <circle class="hg-dot" cx="80" cy="66" r="4"/>
+
+                        <rect class="hg-panel-2" x="46" y="104" width="96" height="220" rx="10"/>
+                        <rect class="hg-slate" x="56" y="120" width="76" height="10" rx="5"/>
+                        <rect class="hg-blue" x="56" y="142" width="76" height="10" rx="5"/>
+                        <rect class="hg-slate" x="56" y="164" width="76" height="10" rx="5"/>
+                        <rect class="hg-amber" x="56" y="186" width="76" height="10" rx="5"/>
+                        <rect class="hg-slate" x="56" y="208" width="76" height="10" rx="5"/>
+
+                        <rect class="hg-panel" x="154" y="104" width="200" height="220" rx="10"/>
+                        <rect class="hg-slate" x="168" y="120" width="150" height="8" rx="4"/>
+                        <rect class="hg-blue" x="168" y="142" width="90" height="8" rx="4"/>
+                        <rect class="hg-slate" x="168" y="164" width="120" height="8" rx="4"/>
+                        <rect class="hg-amber" x="168" y="186" width="60" height="8" rx="4"/>
+                        <rect class="hg-blue" x="168" y="208" width="160" height="8" rx="4"/>
+                        <rect class="hg-slate" x="168" y="230" width="100" height="8" rx="4"/>
+                        <rect class="hg-slate" x="168" y="252" width="130" height="8" rx="4"/>
+                        <rect class="hg-slate" x="168" y="274" width="70" height="8" rx="4"/>
+                        <rect class="hg-text" x="298" y="186" width="2" height="14"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="hero-content">
+                <a class="back-link" href="/#projects">&larr; All projects</a>
+                <div class="hero-eyebrow">Code editor &middot; macOS app</div>
+                <h1>Kiled</h1>
+                <div class="hero-title">A native macOS code editor that opens in a blink.</div>
+                <p class="hero-tagline">Kiled is a native macOS code editor written in Rust on <strong>GPUI</strong> and <strong>tree-sitter</strong> &mdash; Kil's sibling. It edits code and does nothing else: no terminal, no extensions, no git panel. It opens in a blink, uses no CPU while you think, and has VS Code's keys, so your fingers already know it. One binary and its icon: <strong>4.8&nbsp;MB to download, 13.5&nbsp;MB installed</strong>.</p>
+                <div class="hero-badges">
+                    <span class="chip"><span class="dot"></span>★ 1 star</span>
+                    <span class="chip"><span class="dot"></span>MIT</span>
+                    <span class="chip"><span class="dot"></span>macOS 14+ · Apple silicon</span>
+                    <span class="chip"><span class="dot"></span>Rust · GPUI · tree-sitter</span>
+                </div>
+                <div class="hero-ctas">
+                    <a href="https://raw.githubusercontent.com/timwuhaotian/kiled/main/releases/Kiled-arm64.dmg" target="_blank" rel="noopener" class="btn btn-primary">Download the DMG &rarr;</a>
+                    <a href="https://github.com/timwuhaotian/kiled" target="_blank" rel="noopener" class="btn btn-secondary">GitHub repository &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider" aria-hidden="true">
+
+        <section class="section" id="highlights">
+            <div class="section-header reveal">
+                <div class="section-label">Highlights</div>
+                <h2>It edits code and does nothing else.</h2>
+                <p>No terminal, no extensions, no git panel &mdash; a small editor that starts instantly and stays out of the way. Status: early, and tested on macOS 27.</p>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card reveal reveal-delay-1">
+                    <h3>VS Code's keys</h3>
+                    <p>⌘P, ⇧⌘P, ⌘D, ⌥↑↓, ⇧⌥↓, ⌘/, ⌘L, ⇧⌘K, ⌃G, F12, F8, ⇧⌥F, ⌘K ⌘W and the rest are where you expect them &mdash; and every one can be rebound, in the app or in <code>~/.config/kiled/keymap.toml</code>.</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-2">
+                    <h3>Multiple cursors</h3>
+                    <p>⌘D, ⇧⌘L, ⌥⌘↑/↓ and ⌥-click. Every edit, copy and paste happens at each cursor, so a rename across a file is one keystroke sequence.</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-3">
+                    <h3>Syntax highlighting</h3>
+                    <p>Rust, TypeScript, TSX, JavaScript, JSX, JSON, YAML and TOML, incremental as you type and only for what is on screen. Anything else opens as plain text.</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-1">
+                    <h3>Language servers</h3>
+                    <p>Problems underlined as you type, completion, hover, go to definition (⌘-click or F12) and Format Document &mdash; via rust-analyzer, TypeScript 7's own server, vscode-json-language-server, yaml-language-server and taplo, whichever you have installed. Missing one? Kiled tells you how to install it.</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-2">
+                    <h3>Files handled safely</h3>
+                    <p>The explorer creates, renames (F2) and trashes (⌘⌫) &mdash; renames take their open tabs with them and nothing on disk is ever overwritten. Closing a tab, opening another folder or quitting asks first, saves are atomic and keep permissions, ACLs, extended attributes, symlinks and line endings, and binary files are never opened as text.</p>
+                </div>
+                <div class="feature-card reveal reveal-delay-3">
+                    <h3>Idle means idle</h3>
+                    <p>No CPU at rest, and a keystroke costs a fraction of a millisecond even in a 50,000-line file. It also comes back with your folder, tabs, cursors and window where you left them &mdash; and checks for a new release at launch and every six hours, verifying checksum, Developer ID signature and notarization before installing it when you quit.</p>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider" aria-hidden="true">
+
+        <section class="section" id="get-it">
+            <div class="section-header reveal">
+                <div class="section-label">Get it</div>
+                <h2>Download, drag, done.</h2>
+                <p>macOS only: Apple silicon, macOS 14 or later. Language servers are found where your shell would find them and in a project's own <code>node_modules</code> &mdash; install the ones for the languages you use (<code>rustup component add rust-analyzer</code>, <code>npm install -g typescript</code>, <code>npm install -g vscode-langservers-extracted</code>, <code>npm install -g yaml-language-server</code>, <code>brew install taplo</code>).</p>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card reveal reveal-delay-1">
+                    <h3>Download</h3>
+                    <p>Grab the DMG, open it, and drag <strong>Kiled</strong> to <strong>Applications</strong>. It is signed with a Developer ID and notarized by Apple.</p>
+                    <ul class="fact-list" style="margin-top:0.9rem">
+                        <li><strong>Kiled-arm64.dmg</strong> &mdash; 4.8 MB download</li>
+                        <li><strong>Installed</strong> &mdash; 13.5 MB, one binary and its icon</li>
+                        <li><strong>Requires</strong> &mdash; Apple silicon Mac, macOS 14+</li>
+                    </ul>
+                </div>
+                <div class="feature-card reveal reveal-delay-2">
+                    <h3>Verify &amp; update</h3>
+                    <p>The <code>.sha256</code> ships in the same <code>releases/</code> folder:</p>
+                    <div class="code-block" style="margin-top:0.9rem;margin-bottom:0"><code>shasum -a 256 -c Kiled-arm64.dmg.sha256</code></div>
+                </div>
+                <div class="feature-card reveal reveal-delay-3">
+                    <h3>Build from source</h3>
+                    <p>An Apple silicon Mac with Xcode's Metal toolchain (GPUI compiles its shaders at build time) and Rust 1.94 or later:</p>
+                    <div class="code-block" style="margin-top:0.9rem;margin-bottom:0"><code>git clone https://github.com/timwuhaotian/kiled.git
+cd kiled
+cargo run -p kiled --release -- ~/code/my-project
+scripts/bundle.sh release <span class="comment"># → target/release/Kiled.app</span></code></div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider" aria-hidden="true">
+
+        <section class="section" id="links">
+            <div class="section-header reveal">
+                <div class="section-label">Links</div>
+                <h2>Dig deeper.</h2>
+            </div>
+            <div class="link-cards reveal">
+                <a class="link-card" href="https://github.com/timwuhaotian/kiled" target="_blank" rel="noopener">
+                    <strong>GitHub repository &rarr;</strong>
+                    <span>Source, issues and the full README.</span>
+                </a>
+                <a class="link-card" href="https://github.com/timwuhaotian/kiled/tree/main/releases" target="_blank" rel="noopener">
+                    <strong>releases/ folder &rarr;</strong>
+                    <span>Kiled-arm64.dmg and its .sha256.</span>
+                </a>
+                <a class="link-card" href="https://github.com/timwuhaotian/kiled/blob/main/DESIGN.md" target="_blank" rel="noopener">
+                    <strong>DESIGN.md &rarr;</strong>
+                    <span>The text model, measured budgets, LSP rules and tests.</span>
+                </a>
+                <a class="link-card" href="/kil/">
+                    <strong>Kil &rarr;</strong>
+                    <span>The macOS terminal Kiled is the sibling of.</span>
+                </a>
+                <a class="link-card" href="/killi/">
+                    <strong>killi &rarr;</strong>
+                    <span>The tiny AI coding agent that shares this family.</span>
+                </a>
+                <a class="link-card" href="https://timwuhaotian.dev" target="_blank" rel="noopener">
+                    <strong>Personal site &rarr;</strong>
+                    <span>timwuhaotian.dev — work and writing.</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2026 Haotian Wu &mdash; open source at <a href="https://github.com/timwuhaotian" target="_blank" rel="noopener">github.com/timwuhaotian</a> &middot; <a href="https://timwuhaotian.dev" target="_blank" rel="noopener">timwuhaotian.dev</a>
+    </footer>
+
+    <script src="/assets/app.js"></script>
+</body>
+</html>
